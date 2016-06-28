@@ -1,0 +1,26 @@
+﻿2013-10-30 14:58:28.685=>[LogicError][I:0,::1,IE.10.0][a_ProductKind.SearchMaster][M:<[資料行名稱無效。 [ Node name (if any) = ProductKind,Column name = IsSecond ]][   於 System.Data.SqlServerCe.SqlCeCommand.ProcessResults(Int32 hr)
+   於 System.Data.SqlServerCe.SqlCeCommand.CompileQueryPlan()
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteCommand(CommandBehavior behavior, String method, ResultSetOptions options)
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteReader(CommandBehavior behavior)
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   於 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_ProductKind.SearchMaster(q_ProductKind qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 5588]>]
+2013-10-30 14:59:06.544=>[LogicError][I:0,::1,IE.10.0][a_ProductKind.SearchMaster][M:<[資料行名稱無效。 [ Node name (if any) = ProductKind,Column name = IsSecond ]][   於 System.Data.SqlServerCe.SqlCeCommand.ProcessResults(Int32 hr)
+   於 System.Data.SqlServerCe.SqlCeCommand.CompileQueryPlan()
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteCommand(CommandBehavior behavior, String method, ResultSetOptions options)
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteReader(CommandBehavior behavior)
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   於 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_ProductKind.SearchMaster(q_ProductKind qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 5588]>]

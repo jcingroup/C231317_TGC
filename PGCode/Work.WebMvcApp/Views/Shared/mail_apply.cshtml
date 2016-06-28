@@ -1,0 +1,58 @@
+﻿@model ProcCore.Business.Logic.mailContext 
+@{ var mail = Model; }
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>禾吉辰企業社 - 線上諮詢</title>
+    </head>
+    <body style="font: .8em/140% '微軟正黑體', 'Microsoft JhengHei', Helvetica, sans-serif;">
+        <h1 style="font-size:1.5em;">禾吉辰企業社 - 線上諮詢</h1>
+        <p>以下為聯絡人資料：</p>
+        <table border="1" bordercolor="#ddd">
+            <tr>
+              <td style="width:120px; color:#9C7163; padding:5px;">公司名稱</td>
+              <td colspan="3" style="width:360px; padding:5px;"> @mail.t1 </td>
+            </tr>
+            <tr>
+              <td style="color:#9C7163; padding:5px;">聯絡人</td>
+              <td style="width:150px; padding:5px;"> @mail.t2 </td>
+              <td style="width:60px; color:#9C7163; padding:5px;">職稱</td>
+              <td style="width:150px; padding:5px;"> @mail.t3 </td>
+            </tr>
+            <tr>
+              <td style="color:#9C7163; padding:5px;">聯絡電話</td>
+              <td style="padding:5px;"> @mail.t4 </td>
+              <td style="color:#9C7163; padding:5px;">分機</td>
+              <td style="padding:5px;"> @mail.t5 </td>
+            </tr>
+            <tr>
+              <td style="color:#9C7163; padding:5px;">聯絡地址</td>
+              <td colspan="3" padding:5px;"> @mail.t7</td>
+            </tr>
+            <tr>
+              <td style="color:#9C7163; padding:5px;">聯絡傳真</td>
+              <td colspan="3" style="padding:5px;"> @mail.t8 </td>
+            </tr>
+            <tr>
+              <td style="color:#9C7163; padding:5px;">E-mail</td>
+              <td colspan="3" style="padding:5px;"> @mail.t9 </td>
+            </tr>
+            <tr>
+              <td style="color:#9C7163; padding:5px;">需求</td>
+              <td colspan="3" style="padding:5px;">
+                  @if(mail.c1 != null) { @mail.c1 }
+                  @if(mail.c2 != null) { @mail.c2 }
+                  @if(mail.c3 != null) { @mail.c3 }
+              </td>
+            </tr>
+            <tr>
+              <td style="color:#9C7163; padding:5px;">產品內容</td>
+              <td colspan="3" style="width:360px; height:100px; word-break:break-all; padding:5px;">@mail.t10</td>
+            </tr>
+            <tr>
+              <td style="color:#9C7163; padding:5px;">留言意見</td>
+              <td colspan="3" style="width:360px; height:100px; word-break:break-all; height:100px; padding:5px;">@mail.t11</td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,336 @@
+﻿@charset "utf-8";
+
+/* 手機版面 */
+@media screen and (max-width: 767px) {
+ /* layout */
+ body {
+ 	background: url('../images/mobile/bg.gif') repeat-x 0 0;
+ 	font-size:1.2em;
+ 	height:100%;
+ 	}
+ #container { 
+ 	background: url('../images/mobile/bg2.gif') no-repeat center 0;
+ 	min-width:100%;
+ 	}
+ #header,
+ #main,
+ #footer,
+ #sidebar,
+ #content {
+ 	float:none;
+ 	width:99%; height:auto;
+ 	padding:0;
+ 	margin:auto;
+ 	}
+ #header {
+ 	background: url('../images/mobile/slogan.gif') no-repeat 138px 115px;
+ 	min-height:170px;
+ 	overflow:visible;
+ }
+ #main {
+ 	background:none;
+ 	padding-bottom:0;
+ 	}
+ #footer { 
+ 	background: url('../images/mobile/footerBg.gif') no-repeat right 0;
+ 	background-size: 835px 19px;
+ 	padding:10px 0 0 0;
+ 	margin:0;
+ 	/*margin:-245px 0 0 0;*/
+ 	}
+ #sidebar { 
+ 	min-height:65px;
+ 	margin:0 auto 15px auto;
+ 	}
+ #content {
+ 	background-position:0 10px;
+ 	padding:5px 0 10px 0;
+ 	}
+
+ /* header */
+ h1 {
+ 	background-attachment: fixed;
+ 	background: url('../images/mobile/logo.png') no-repeat 0 -15px;
+ 	background-size:480px 146px;
+ 	width:100%; height:146px;
+ 	}
+ #slider { display:none; height:auto; width:auto; left:0;}
+
+ #menu { 
+ 	display:none;
+ 	top:35px;
+ 	margin:0 auto;
+ 	text-align: center;
+ 	}
+ #menu li { 
+ 	margin:1px;
+ 	float:none;
+ 	display:inline-block;
+ 	}
+ #menu a {
+ 	background:#9B7760;
+ 	font-size:1em;
+ 	line-height:110%;
+ 	width:auto; height:auto;
+ 	padding:10px 20px;
+ 	margin:0;
+ 	}
+ #menu a:hover, #menu a:active,
+ .AboutUs #menu .nav1,
+ .second #menu .nav2,
+ .new #menu .nav3,
+ .Info #menu .nav4,
+ .ContactUs #menu .nav5 {
+ 	background:#63B629;
+ 	}
+ 
+ /* mobile menu */
+ nav { 
+ 	position:relative;
+ 	top:120px;
+ 	z-index:9999;
+ 	}
+ #menu-icon,#menu-icon2 {
+ 	background:url('../images/navBg.gif') no-repeat 0 0;
+ 	display:block;
+ 	text-align:center;
+ 	position:absolute;
+ 	}
+ #menu-icon {
+ 	color:#F9FAFB;
+ 	font-size:1.2em;
+ 	font-weight:bold;
+ 	line-height:140%;
+ 	width:123px; height:33px;
+ 	left:330px;
+ 	*zoom:1;
+ 	
+ 	-webkit-transition: background .5s ease;
+ 	-moz-transition: background .5s ease;
+ 	-o-transition: background .5s ease;
+ 	transition: background .5s ease;
+ 	}
+ #menu-icon:hover,#menu-icon.active {
+ 	background-image:url('../images/navBg2.gif');
+ 	}
+ 
+ /* sidebar */
+ #sidebar nav {
+ 	top:0;
+ 	}
+ #menu-icon2, #sidebar .btn { 
+ 	background:url('../images/mobile/subnavBg.gif') no-repeat center 28px;
+ 	background-size:176px 38px;
+ 	text-align:center;
+ 	color:#808080;
+ 	font-size:1.4em;
+ 	font-weight:bold;
+ 	width:147px;
+ 	padding:0 10px 30px 10px;
+ 	left:50%;
+ 	}
+ #menu-icon2 {
+ 	margin-left:-168px;
+ 	}
+ #sidebar .btn {
+ 	position:absolute;
+ 	margin-left:5px;
+ 	}
+ 
+ #sidebar h4 {
+ 	display:none;
+ 	}
+ #sidebar ul {
+ 	display: none;
+ 	float:left;
+ 	margin:60px 0 0 0;
+ 	overflow:hidden;
+ 	}
+ #sidebar li {
+ 	display:inline-block;
+ 	}
+ #sidebar ul a {
+ 	background:none;
+ 	font-size:1em;
+ 	padding:5px 10px;
+ 	}
+ 
+ /* footer */
+ h2 { 
+ 	margin:10px;
+ 	width: 100%;
+ 	}
+ #footer p {
+ 	border:none;
+ 	padding:0; margin:0 10px;
+ 	}
+ 
+ /* content */
+ h3 { 
+ 	font-size:1.5em;
+ 	}
+ .breadCrumb { 
+ 	overflow:hidden;
+ 	margin-top:-12px;
+ 	}
+ iframe {
+ 	max-width:767px; height:300px;
+ 	width:99%;
+ 	}
+ #content h3 {
+ 	background: url('../images/mobile/titleBg2.gif') no-repeat 0 center;
+ 	background-size:40px 100px;
+ 	line-height:300%;
+ 	margin-top:-5px;
+ 	}
+ #content h4 {
+ 	font-size:1.4em;
+ 	margin-top:-25px;
+ 	}
+ #content div + h4 {
+ 	margin-top:0;
+ }
+ #content h5, #content p, #content cite, form, .map {
+ 	margin-left:0;
+ 	}
+ label {
+ 	display:block;
+ 	text-align:left;
+ 	width:100%;
+ 	}
+ .large,textarea {
+ 	width:96%;
+ 	max-width:767px;
+ 	}
+ .small {
+ 	width:50px;
+ 	}
+ 	form .btn {
+ 	margin:15px 0 0 0;
+ 	}
+ .prolist {
+ 	text-align:center;
+ 	margin:0 auto 15px auto;
+ 	}
+ .prolist li {
+ 	float:none;
+ 	display:inline-block;
+ 	}
+ .info {
+ 	width:99%;
+ 	height:auto;
+ 	float:none;
+ 	margin-bottom: 15px;
+ 	padding:5px 0;
+ 	line-height: 1.5;
+ 	box-sizing:border-box;
+ }
+ .info span {
+ 	margin-top:10px;
+ }
+ .product-pics {
+	width:99%;
+	height:275px;
+	float:none;
+	margin-bottom:10px;
+	box-sizing:border-box;
+}
+.product-pics .slides a {
+	display:block;
+  	width: 97%;
+  	height:265px;
+  	padding:5px;
+  	text-align: center;
+  	line-height: 265px;
+}
+
+ /* index */
+ .index #sidebar h3 {
+ 	padding-top: 35px;
+ }
+ .index #content {
+ 	background-position:0 0;
+ 	}
+ .index #content h3 {
+ 	background:none;
+ 	line-height:102%;
+ 	margin-top:30px;
+ 	}
+ .index #content p {
+ 	margin-left:30px;
+ 	}
+ .intro {
+ 	background:#F9F9F9;
+ 	padding:10px 0;
+ 	}
+ .intro li {
+ 	display:block; float:none;
+ 	margin:0;
+ 	}
+ .intro a { 
+ 	display:block;
+ 	background-attachment: fixed;
+ 	background: url('../images/mobile/index_intro.jpg') no-repeat 0;
+ 	background-size:960px 203px;
+ 	text-indent:-9999px;
+ 	width:320px; height:203px;
+ 	margin:auto;
+ 	
+ 	-webkit-transition: background .5s ease;
+ 	-moz-transition: background .5s ease;
+ 	-o-transition: background .5s ease;
+ 	transition: background .5s ease;
+ 	}
+ .intro .i2 { 
+ 	background: url('../images/mobile/index_intro.jpg') no-repeat -318px 0 ;
+ 	background-size:960px 203px;
+ 	}
+ .intro .i3 { 
+ 	background: url('../images/mobile/index_intro.jpg') no-repeat -640px 0 ;
+ 	background-size:960px 203px;
+ 	}
+ .intro .i1:hover,
+ .intro .i1:active { 
+ 	background: url('../images/mobile/index_intro2.jpg') no-repeat 0;
+ 	background-size:960px 203px;
+ 	}
+ .intro .i2:hover,
+ .intro .i2:active { 
+ 	background: url('../images/mobile/index_intro2.jpg') no-repeat -318px 0 ;
+ 	background-size:960px 203px;
+ 	}
+ .intro .i3:hover,
+ .intro .i3:active { 
+ 	background: url('../images/mobile/index_intro2.jpg') no-repeat -640px 0 ;
+ 	background-size:960px 203px;
+ 	}
+ .index #sidebar .marquee {
+ 	width:99%;
+ }
+ .index #sidebar .marquee ul {
+ 	display:block;
+ 	margin:0;
+ 	float:none;
+ }
+} 
+
+/* 手機版面 */
+@media screen and (max-width: 465px) {
+ #header {
+ 	background: url('../images/mobile/slogan.gif') no-repeat 5px 115px;
+ 	}
+ h1 {
+ 	background: url('../images/mobile/logo_s.png') no-repeat 0 -2px;
+ 	background-size:327px 118px;
+ 	}
+ #menu-icon {
+ 	left:185px;
+ 	}
+ #menu-icon2, #sidebar .btn {
+ 	background-size:167px 37px;
+ }
+ .club {
+ 	top:auto;
+ 	bottom:40px;
+ 	}
+}

@@ -1,0 +1,124 @@
+﻿@model ProcCore.Business.Logic.m_ProductData
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "全新辦公家具,辦公家具買賣,二手辦公家具回收,全新辦公家具買賣-TGC禾吉辰辦公家具";
+    ViewBag.Keywords = "全新辦公家具,辦公家具,辦公家具買賣,辦公家具回收,辦公家具買賣回收,二手辦公家具回收,全新辦公家具買賣,二手辦公家具買賣回收,辦公桌,二手辦公家具,辦公椅,屏風,辦公家具設備";
+    ViewBag.Description = "全新辦公家具,辦公家具買賣,二手辦公家具買賣回收,TGC禾吉辰辦公家具,提供您線上辦公家具買賣,不出門在家也能添購辦公家具!辦公家具線上估價服務,若您有辦公室規劃裝潢需求,可線上估算全新辦公家具買賣及二手辦公家具回收價格!全新辦公家具買賣,二手辦公家具回收,辦公家具買賣,最優質的選擇-TGC禾吉辰辦公家具!";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/page.css">
+}
+
+<div id="sidebar">
+    <h4>Categories</h4>
+    <nav>
+        <a id="menu-icon2" href="#menu" title="點選開啟選單">Categories</a>
+        <ul class="submenu">
+            <!--
+            當產品頁面在當前子分類時在 a 後加上 「class="cuttent"」(前後方均空1格)，如下方辦公桌系列
+            讓css能出現變色效果，client端較清楚自己在那個系列下
+            -->
+            <li><a class="@ViewBag.Cur[1]" href="~/Products/Products_new?sid=1">屏風系列</a></li>
+            <li><a class="@ViewBag.Cur[2]" href="~/Products/Products_new?sid=2">辦公桌系列</a></li>
+            <li><a class="@ViewBag.Cur[3]" href="~/Products/Products_new?sid=3">會議桌系列</a></li>
+            <li><a class="@ViewBag.Cur[4]" href="~/Products/Products_new?sid=4">檔案櫃系列</a></li>
+            <li><a class="@ViewBag.Cur[5]" href="~/Products/Products_new?sid=5">主管辦公桌系列</a></li>
+            <li><a class="@ViewBag.Cur[6]" href="~/Products/Products_new?sid=6">辦公椅系列</a></li>
+            <li><a class="@ViewBag.Cur[7]" href="~/Products/Products_new?sid=7">沙發系列</a></li>
+            <li><a class="@ViewBag.Cur[8]" href="~/Products/Products_new?sid=8">其他商品</a></li>
+        </ul>
+    </nav>
+    <a class="btn" href="~/Products/Products_second">二手辦公家具</a>
+</div><!-- sidebar //-->
+
+<ul class="breadCrumb">
+    <li><a href="~/index">HOME</a></li>
+    <li><a href="~/Products/Products_new">全新辦公家具</a></li>
+    <li><a href="~/Products/Products_new?sid=@ViewBag.Nur">@ViewBag.Series</a></li>
+    <li>@ViewBag.kind</li>
+</ul>
+
+<div id="content">
+    <h3><em>03</em>全新辦公家具</h3>
+
+    <h4>@ViewBag.Series / @ViewBag.kind</h4>
+
+    <div class="info">
+        <h4><em>產品編號 @Model.Code</em>@Model.Name</h4>
+        @Html.Raw(Model.Standard)
+        <span>
+            售價:<em>NT$@Model.Price/@Model.UnitName</em>
+        </span>
+        <i>點選左方產品照片可放大</i>
+    </div>
+    <div class="product-pics flexslider">
+        <ul class="slides">
+            @{
+                var imgo = Html.ImagesAppendInfo("Sys_Active", "ProductData", Model.ID, "ListMore");
+                var imgs = Html.ImagesAppendInfo("Sys_Active", "ProductData", Model.ID, "ListMore", 300);
+                int i = 0;
+            }
+            @foreach (var img in imgs)
+            {
+                <li>
+                    <a class="fancybox" href="@imgo[i]">
+                        <img src="@img" />
+                    </a>
+                </li>
+                i++;
+            }
+        </ul>
+    </div>
+    <div class="thumb flexslider">
+        <ul class="slides">
+
+            @foreach (var img in imgs)
+            {
+                <li>
+                    <img src="@img" />
+                </li>
+            }
+        </ul>
+    </div>
+
+    <h4>詳細說明</h4>
+    <div class="detail">
+        @Html.Raw(Model.Content)
+    </div>
+
+    <div class="align-r">
+        <a class="btn" href="~/Products/Products_new2?sid=@ViewBag.Nur">BACK</a>
+        <a class="btn" href="#header">▲TOP</a>
+    </div><!-- align-r //-->
+
+</div><!-- content //-->
+
+<script src="~/Scripts/jquery.flexslider-min.js"></script>
+
+<script>
+    $(function () {
+        $(".fancybox").fancybox();
+        $('.thumb').flexslider({
+            animation: "slide",
+            controlNav: false,
+            prevText: "<i class='fa fa-chevron-circle-left'></i>",
+            nextText: "<i class='fa fa-chevron-circle-right'></i>",
+            animationLoop: false,
+            slideshow: false,
+            itemWidth: 92,
+            itemMargin: 5,
+            asNavFor: '.product-pics'
+        });
+
+        $('.product-pics').flexslider({
+            animation: "slide",
+            controlNav: false,
+            prevText: "<i class='fa fa-chevron-circle-left'></i>",
+            nextText: "<i class='fa fa-chevron-circle-right'></i>",
+            animationLoop: false,
+            slideshow: false,
+            sync: ".thumb"
+        });
+    });
+</script>

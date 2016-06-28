@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15DF1E9F-D17F-4692-8B96-FBA63E810370}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotWeb.WebApp</RootNamespace>
+    <AssemblyName>Proc.MvcWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.DatabaseCore, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.DatabaseCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.DotNetExtension, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.DotNetExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.ExceptionDefine, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.ExceptionDefine.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.LogWriteHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.LogWriteHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.ProjectHelper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.ProjectHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Res.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ResWeb1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResWeb.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Areas\Sys_Active\Controllers\ParamController.cs" />
+    <Compile Include="Areas\Sys_Active\Controllers\ProductDataController.cs" />
+    <Compile Include="Areas\Sys_Active\Controllers\ProductKindController.cs" />
+    <Compile Include="Areas\Sys_Active\Sys_ActiveAreaRegistration.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\CodeController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\PowerUnitController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\PowerUsersController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\ProgController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\SystemLoginController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\UnitController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\XYZController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\ParmController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\DocController.cs" />
+    <Compile Include="Areas\Sys_Base\Sys_BaseAreaRegistration.cs" />
+    <Compile Include="Areas\Sys_Active\Controllers\MessageController.cs" />
+    <Compile Include="Areas\Sys_Example\Sys_ExampleAreaRegistration.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\InfoController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\_SysAdmController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Code\Ashx\AjaxDownLoadFile.ashx.cs">
+      <DependentUpon>AjaxDownLoadFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\AjaxGetCounty.ashx.cs">
+      <DependentUpon>AjaxGetCounty.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\AjaxGetZip.ashx.cs">
+      <DependentUpon>AjaxGetZip.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\BaseIHttpHandler.cs" />
+    <Compile Include="_Code\Ashx\ValidateCode.ashx.cs">
+      <DependentUpon>ValidateCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\ValidateCode_AddMember.ashx.cs">
+      <DependentUpon>ValidateCode_AddMember.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\ValidateCode_Forgot.ashx.cs">
+      <DependentUpon>ValidateCode_Forgot.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\ValidateCode_Order.ashx.cs">
+      <DependentUpon>ValidateCode_Order.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\AjaxGetRoad.ashx.cs">
+      <DependentUpon>AjaxGetRoad.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\AjaxGetProductKind.ashx.cs">
+      <DependentUpon>AjaxGetProductKind.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\CommClass\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Code\CommClass\BaseWebController.cs" />
+    <Compile Include="_Code\CommClass\CommWebSetup.cs" />
+    <Compile Include="_Code\CommClass\HtmlHelpers.cs" />
+    <Compile Include="_Code\CommClass\Pager\IPagedList.cs" />
+    <Compile Include="_Code\CommClass\Pager\PagedList.cs" />
+    <Compile Include="_Code\CommClass\Pager\Pager.cs" />
+    <Compile Include="_Code\CommClass\Pager\PagingExtensions.cs" />
+    <Compile Include="_Code\CommClass\RptPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_GlobalResources\ResWeb.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ResWeb1.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\css\base\basic.css" />
+    <Content Include="Content\css\base\layout.css" />
+    <Content Include="Content\css\base\nivo-slider.css" />
+    <Content Include="Content\css\index.css" />
+    <Content Include="Content\css\mobile.css" />
+    <Content Include="Content\css\page.css" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\banner2.jpg" />
+    <Content Include="Content\images\banner3.jpg" />
+    <Content Include="Content\images\bg.gif" />
+    <Content Include="Content\images\bg2.gif" />
+    <Content Include="Content\images\copyrightBg.gif" />
+    <Content Include="Content\images\dot.gif" />
+    <Content Include="Content\images\footerBg.gif" />
+    <Content Include="Content\images\header.jpg" />
+    <Content Include="Content\images\icon.gif" />
+    <Content Include="Content\images\icon2.gif" />
+    <Content Include="Content\images\icon_club.gif" />
+    <Content Include="Content\images\icon_club2.gif" />
+    <Content Include="Content\images\index\banner.jpg" />
+    <Content Include="Content\images\index\banner2.jpg" />
+    <Content Include="Content\images\index\banner3.jpg" />
+    <Content Include="Content\images\index\bg.gif" />
+    <Content Include="Content\images\index\pro1-2.jpg" />
+    <Content Include="Content\images\index\pro1.jpg" />
+    <Content Include="Content\images\index\pro2-2.jpg" />
+    <Content Include="Content\images\index\pro2.jpg" />
+    <Content Include="Content\images\index\pro3-2.jpg" />
+    <Content Include="Content\images\index\pro3.jpg" />
+    <Content Include="Content\images\Info\pic1.jpg" />
+    <Content Include="Content\images\Info\pic2.jpg" />
+    <Content Include="Content\images\Info\pic3.jpg" />
+    <Content Include="Content\images\Info\pic4.jpg" />
+    <Content Include="Content\images\Info\pic5.jpg" />
+    <Content Include="Content\images\Info\pic6.jpg" />
+    <Content Include="Content\images\Info\pic7.jpg" />
+    <Content Include="Content\images\line.gif" />
+    <Content Include="Content\images\map1.jpg" />
+    <Content Include="Content\images\map1b.jpg" />
+    <Content Include="Content\images\map2.jpg" />
+    <Content Include="Content\images\mobile\bg.gif" />
+    <Content Include="Content\images\mobile\bg2.gif" />
+    <Content Include="Content\images\mobile\copyrightBg.gif" />
+    <Content Include="Content\images\mobile\footerBg.gif" />
+    <Content Include="Content\images\mobile\icon_club.gif" />
+    <Content Include="Content\images\mobile\index_intro.jpg" />
+    <Content Include="Content\images\mobile\index_intro2.jpg" />
+    <Content Include="Content\images\mobile\logo.png" />
+    <Content Include="Content\images\mobile\logo_s.png" />
+    <Content Include="Content\images\mobile\nav_icon.gif" />
+    <Content Include="Content\images\mobile\slogan.gif" />
+    <Content Include="Content\images\mobile\subnavBg.gif" />
+    <Content Include="Content\images\mobile\titleBg.gif" />
+    <Content Include="Content\images\mobile\titleBg2.gif" />
+    <Content Include="Content\images\navBg.gif" />
+    <Content Include="Content\images\navBg2.gif" />
+    <Content Include="Content\images\Products\latest\01.jpg" />
+    <Content Include="Content\images\Products\latest\02.jpg" />
+    <Content Include="Content\images\Products\latest\03.jpg" />
+    <Content Include="Content\images\Products\list1.jpg" />
+    <Content Include="Content\images\Products\list2.jpg" />
+    <Content Include="Content\images\Products\list3.jpg" />
+    <Content Include="Content\images\Products\proBg.gif" />
+    <Content Include="Content\images\titleBg.gif" />
+    <Content Include="Content\images\titleBg2.gif" />
+    <Content Include="error.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\Sys_Active\Views\Param\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Doc\ListData.cshtml" />
+    <Content Include="Scripts\sidselect.js" />
+    <Content Include="Scripts\productPage.js" />
+    <Content Include="Scripts\jquery.flexslider-min.js" />
+    <Content Include="Scripts\jquery.scrollbox.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="_Code\SysDoc\category.html" />
+    <Content Include="_Code\SysDoc\category.swf" />
+    <Content Include="_Code\SysDoc\category2.html" />
+    <Content Include="_Code\SysDoc\category2.swf" />
+    <Content Include="_Code\SysDoc\product.html" />
+    <Content Include="_Code\SysDoc\product.swf" />
+    <Content Include="_Code\SysDoc\product2.html" />
+    <Content Include="_Code\SysDoc\product2.swf" />
+    <Content Include="_Code\WebDB\memo.txt" />
+    <Content Include="Areas\Sys_Active\Views\ProductKind\EditData.cshtml" />
+    <Content Include="Areas\Sys_Active\Views\ProductKind\ListData.cshtml" />
+    <None Include="Properties\PublishProfiles\發行至智邦%28FTP%29.pubxml" />
+    <None Include="Properties\PublishProfiles\發行至檔案.pubxml" />
+    <None Include="Scripts\Resources\7416188652_bda8e802b2_b.jpg" />
+    <Content Include="Areas\Sys_Example\Views\object under input.html" />
+    <Content Include="Scripts\fancyBox\lib\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\fancyBox\lib\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Scripts\fancyBox\fancyboxset.js" />
+    <Content Include="Scripts\fancyBox\source\blank.gif" />
+    <Content Include="Scripts\fancyBox\source\close.gif" />
+    <Content Include="Scripts\fancyBox\source\fancybox_loading.gif" />
+    <Content Include="Scripts\fancyBox\source\fancybox_overlay.png" />
+    <Content Include="Scripts\fancyBox\source\fancybox_sprite.png" />
+    <Content Include="Scripts\fancyBox\source\helpers\fancybox_buttons.png" />
+    <Content Include="Scripts\fancyBox\source\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Scripts\fancyBox\source\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\fancyBox\source\helpers\jquery.fancybox-media.js" />
+    <Content Include="Scripts\fancyBox\source\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Scripts\fancyBox\source\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\fancyBox\source\jquery.fancybox.css" />
+    <Content Include="Scripts\fancyBox\source\jquery.fancybox.js" />
+    <Content Include="Scripts\fancyBox\source\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\fancyBox\fancyboxset.min.js" />
+    <Content Include="Scripts\jquery.nivo.slider.js" />
+    <Content Include="Scripts\swfobject.js" />
+    <Content Include="Views\Shared\EditorTemplates\vuc_DateTime.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\vuc_LabelText.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="_Code\ckeditor_4.1.2_full\config.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\config.js" />
+    <Content Include="_Code\CSS\commStyle.css" />
+    <Content Include="_Code\CSS\formStyle.css" />
+    <Content Include="_Code\CSS\login.css" />
+    <Content Include="_Code\Images\banner.jpg" />
+    <Content Include="_Code\Images\bg.gif" />
+    <Content Include="_Code\Images\btn_bg.gif" />
+    <Content Include="_Code\Images\form_line.gif" />
+    <Content Include="_Code\Images\h1_bg.gif" />
+    <Content Include="_Code\Images\header_bg.png" />
+    <Content Include="_Code\Images\login_bg.png" />
+    <Content Include="_Code\Images\pic.png" />
+    <Content Include="_Code\Images\sys_bg.gif" />
+    <Content Include="_Code\Images\sys_bg2.gif" />
+    <Content Include="_Code\jqScript\commfunc.js" />
+    <Content Include="_Code\jqScript\webfunc.js" />
+    <Content Include="_Code\jqScript\mobilefunc.js" />
+    <Content Include="_Code\Log\memo.txt" />
+    <Content Include="_Code\Maindoor\body\images\banner.jpg" />
+    <Content Include="_Code\Maindoor\body\images\inputBg.gif" />
+    <Content Include="_Code\Maindoor\body\images\leftBg.gif" />
+    <Content Include="_Code\Maindoor\body\images\leftNavBg.gif" />
+    <Content Include="_Code\Maindoor\body\images\login.gif" />
+    <Content Include="_Code\Maindoor\body\images\loginBg.gif" />
+    <Content Include="_Code\Maindoor\body\images\loginBg2.gif" />
+    <Content Include="_Code\Maindoor\body\images\loginBtn.gif" />
+    <Content Include="_Code\Maindoor\body\images\loginLogo.gif" />
+    <Content Include="_Code\Maindoor\body\images\login_out.gif" />
+    <Content Include="_Code\Maindoor\body\images\topBg.gif" />
+    <Content Include="_Code\SysDoc\Doc.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="_Code\SysUpFiles\memo.txt" />
+    <Content Include="Scripts\fancyBox\.gitattributes" />
+    <Content Include="Scripts\fancyBox\CHANGELOG.md" />
+    <Content Include="_Code\Ashx\ValidateCode_AddMember.ashx" />
+    <Content Include="_Code\Ashx\ValidateCode_Forgot.ashx" />
+    <Content Include="_Code\Ashx\ValidateCode_Order.ashx" />
+    <Content Include="Views\Shared\Manage\includeDialog.cshtml" />
+    <Content Include="_Code\Ashx\AjaxGetRoad.ashx" />
+    <Content Include="Views\Shared\Manage\adr_tw.cshtml" />
+    <Content Include="Views\AboutUs\AboutUs.cshtml" />
+    <Content Include="Views\ContactUs\ContactUs.cshtml" />
+    <Content Include="Views\Products\Products_new.cshtml" />
+    <Content Include="Views\Products\Products_second.cshtml" />
+    <Content Include="Views\Info\Info.cshtml" />
+    <Content Include="Views\Products\Products_new2.cshtml" />
+    <Content Include="Views\Products\Products_second2.cshtml" />
+    <Content Include="_Code\Ashx\AjaxGetProductKind.ashx" />
+    <Content Include="Views\Shared\mail_apply.cshtml" />
+    <Content Include="Views\Products\Products_second3.cshtml" />
+    <Content Include="Views\Products\Products_new3.cshtml" />
+    <Content Include="Views\Info\Info2.cshtml" />
+    <Content Include="Views\Info\Info3.cshtml" />
+    <Content Include="Views\Info\Info4.cshtml" />
+    <Content Include="Views\Info\Info5.cshtml" />
+    <Content Include="Views\Info\Info6.cshtml" />
+    <Content Include="Views\Info\Info7.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_GlobalResources\App_Data\" />
+    <Folder Include="Areas\Sys_Active\Views\Shared\" />
+    <Folder Include="Areas\Sys_Base\Views\Shared\" />
+    <Folder Include="Areas\Sys_Example\Controllers\" />
+    <Folder Include="Areas\Sys_Example\Views\Shared\" />
+    <Folder Include="_Code\CReport\" />
+    <Folder Include="_Code\RPTExcel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Work.BusinessLogic\Work.BusinessLogic.csproj">
+      <Project>{81f31d0b-5d7a-44f7-ba5b-362bf27fcc8d}</Project>
+      <Name>Work.BusinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Active\Views\Web.config" />
+    <Content Include="Areas\Sys_Active\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Code\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\PowerUnit\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\PowerUsers\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Prog\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Prog\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\SystemLogin\index.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Unit\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Unit\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Users\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Users\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Users\Password.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Web.config" />
+    <Content Include="Areas\Sys_Base\Views\XYZ\Index.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sys_Active\Views\Message\EditData.cshtml" />
+    <Content Include="Areas\Sys_Active\Views\Message\ListData.cshtml" />
+    <Content Include="Areas\Sys_Example\Views\Web.config" />
+    <Content Include="Areas\Sys_Example\Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Manage\includeFiledownload_iFrame.cshtml" />
+    <Content Include="Views\Shared\Manage\includeScript_Comm.cshtml" />
+    <Content Include="Views\Shared\Manage\includeScript_Grid.cshtml" />
+    <Content Include="Views\Shared\Manage\SysLayoutPage.cshtml" />
+    <Content Include="Views\Shared\Manage\vucMenu.cshtml" />
+    <Content Include="_Code\Ashx\AjaxDownLoadFile.ashx" />
+    <Content Include="_Code\Ashx\AjaxGetCounty.ashx" />
+    <Content Include="_Code\Ashx\AjaxGetZip.ashx" />
+    <Content Include="_Code\Ashx\ValidateCode.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Code\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\PowerUnit\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Prog\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Prog\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\SystemLogin\App_LocalResources\index.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Unit\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Unit\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Users\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Users\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="Areas\Sys_Active\Views\Message\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Active\Views\Message\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="App_GlobalResources\Res.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Res.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Sys_Base\Views\Parm\App_LocalResources\ListData.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Parm\ListData.cshtml" />
+    <Content Include="Areas\Sys_Active\Views\ProductData\EditData.cshtml" />
+    <Content Include="Areas\Sys_Active\Views\ProductData\ListData.cshtml" />
+    <None Include="Properties\PublishProfiles\發行至伺服器.pubxml" />
+    <Content Include="Views\Shared\Manage\vucFooter.cshtml" />
+    <Content Include="Views\Shared\Manage\includeScript_FineUpload.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\Shared\sidebar.cshtml" />
+    <Content Include="Views\Index\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Users\App_LocalResources\Password.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Users\App_LocalResources\Password.cshtml.zh-CN.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\SystemLogin\App_LocalResources\index.cshtml.zh-CN.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Active\Views\Param\App_LocalResources\EditData.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Active\Views\ProductData\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Active\Views\ProductData\App_LocalResources\ListData.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Doc\App_LocalResources\ListData.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\PowerUsers\App_LocalResources\EditData.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Active\Views\ProductKind\App_LocalResources\EditData.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Active\Views\ProductKind\App_LocalResources\ListData.cshtml.resx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>17935</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

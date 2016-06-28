@@ -1,0 +1,152 @@
+﻿@using ProcCore.Business.Logic;
+<!DOCTYPE html>
+<html>
+<!-- saved from url=(0014)about:internet -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="description" content="@ViewBag.Description" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/swfobject.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="~/Scripts/fancyBox/source/jquery.fancybox.js"></script>
+    <link rel="stylesheet" href="~/Scripts/fancyBox/source/jquery.fancybox.css" />
+    <!-- 讓IE9支援css3的行動裝置語法 -->
+    <!--[if lt IE 9]>
+    <script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <!-- 手機版選單js特效 -->
+    <script>
+        $(function () {
+            var pull = $('#menu-icon');
+            var menu = $('nav #menu');
+            var menuHeight = menu.height();
+
+            $(pull).on('click', function (e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+
+            $(window).resize(function () {
+                var w = $(window).width();
+                if (w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+
+            var pull2 = $('#menu-icon2');
+            var menu2 = $('nav .submenu');
+            var menu2Height = menu2.height();
+
+            $(pull2).on('click', function (e) {
+                e.preventDefault();
+                menu2.slideToggle();
+            });
+
+            $(window).resize(function () {
+                var w2 = $(window).width();
+                if (w2 > 320 && menu2.is(':hidden')) {
+                    menu2.removeAttr('style');
+                }
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="~/Content/css/base/nivo-slider.css" media="screen" />
+    @RenderSection("styles", false)
+    <link rel="stylesheet" href="~/Content/css/mobile.css">
+    <meta name="description" content="The description of my page" />
+</head>
+
+<body class="@ViewBag.BodyClass">
+
+    <div id="container">
+
+        <div id="header">
+
+            <h1 onclick="location.href='@Url.Content("~/index")';" title="回首頁">二手.全新辦公家具買賣網:TGC禾吉辰辦公家具:辦公室規劃．裝潢</h1>
+
+            <nav>
+                <a id="menu-icon" href="#menu" title="點選開啟選單">MENU</a>
+                <ul id="menu">
+                    <li><a class="nav1" href="~/AboutUs/AboutUs">公司簡介</a></li>
+                    <li><a class="nav2" href="~/Products/Products_second">二手辦公家具</a></li>
+                    <li><a class="nav3" href="~/Products/Products_new">全新辦公家具</a></li>
+                    <li><a class="nav4" href="~/Info/Info">色卡介紹</a></li>
+                    <li><a class="nav5" href="~/ContactUs/ContactUs">聯絡我們</a></li>
+                </ul>
+            </nav>
+
+            <div id="slider" class="nivoSlider">
+                @if (ViewBag.IsFirstPage)
+                {   //首頁
+                    <img src="~/Content/images/index/banner.jpg">
+                    <img src="~/Content/images/index/banner2.jpg">
+                    <img src="~/Content/images/index/banner3.jpg">
+                }
+                else
+                {   //非首頁
+                    <img src="~/Content/images/banner.jpg">
+                    <img src="~/Content/images/banner2.jpg">
+                    <img src="~/Content/images/banner3.jpg">
+                }
+            </div><!-- banner //-->
+
+            <script src="~/Scripts/jquery.nivo.slider.js"></script>
+            <script>
+                $(window).load(function () {
+                    $('#slider').nivoSlider();
+                });
+            </script>
+
+        </div><!-- header //-->
+
+        <div id="main">
+
+            @RenderBody()
+
+        </div><!-- main //-->
+
+    </div><!-- container //-->
+
+    <div id="footer">
+
+        <h2>二手辦公家具買賣‧屏風拆改‧辦公室搬遷<br>可至現場免費丈量，歡迎您來電洽詢！</h2>
+
+        <p>
+            桃園縣平鎮市南東路108號<br>
+            電話: 03-439-0063  |  傳真: 03-439-0073  |  手機: 0912-262-800 [陳先生]<br>
+            E-mail: <a href="mailto:top04244@yahoo.com.tw">top04244@yahoo.com.tw</a> @*  |  Blog: <a href="http://tgc.web66.com.tw" target="_blank">http://tgc.web66.com.tw</a>*@
+        </p>
+
+        <ul class="club">
+            <li><a class="club1" href="#">Facebook</a></li>
+            <li><a class="club2" href="#">Twitter</a></li>
+        </ul>
+        <div><a href="http://tgc.com.tw/index">辦公家具買賣</a>,<a href="http://tgc.com.tw/Products/Products_new">全新辦公家具</a>,<a href="http://tgc.com.tw/Products/Products_second">二手辦公家具</a>,二手辦公家具 新竹,台北二手辦公家具,<a href="http://tgc.com.tw/Products/Products_new?sid=2">全新辦公家具買賣</a>,<a href="http://tgc.com.tw/Products/Products_second2?sid=0">二手辦公家具買賣</a>,全新.二手<a href="http://tgc.com.tw/ContactUs/ContactUs">辦公家具買賣回收</a>。</div>
+        <div class="copyright">TGC © 2013 Privacy policy</div>
+
+    </div><!-- footer //-->
+    @RenderSection("JScript", false)
+    @if (!(Request.Browser.Browser == "IE" && Request.Browser.Version == "7.0"))
+    {
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-41942518-17', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    }
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script type="text/javascript" src="_Code/jqScript/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+        (function ($) {
+            $.extend($.fn, {
+                intr: function (options) {
+                    var l = $(this).position().left
+                    var t = $(this).position().top;
+                    var h = $(this).outerHeight();
+                    
+                    $("body").append("<div id=\"adr\" style=\"border: solid; border-width: 1px\">Text</div>");
+
+                    $("#adr").css({ top: (t + h) + "px", left: l + "px", position: "absolute" });
+                }
+            });
+        })(jQuery);
+
+        $(document).ready(function () {
+            $("#sky").intr();
+        });
+    </script>
+</head>
+<body>
+    <span>WoW</span>
+    <div>
+        <input type="text" id="sky" />
+    </div>
+</body>
+</html>

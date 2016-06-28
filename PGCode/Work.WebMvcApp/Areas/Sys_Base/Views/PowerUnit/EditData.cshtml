@@ -1,0 +1,101 @@
+﻿@using ProcCore;
+@using ProcCore.Business.Logic;
+@using ProcCore.Business.Logic.TablesDescription;
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.JQGridScript;
+@using ProcCore.NetExtension;
+@using ProcCore.JqueryHelp.ElementAjaxScriptHelp;
+@{
+    _PowerUnit Tab = new _PowerUnit();
+}
+@section IncludeScript{
+    @Html.Partial("Manage/includeScript_Comm")}
+    @Html.Partial("Manage/includeScript_Grid")
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    //Grid Setup
+    jqGrid jqGrid = new jqGrid();
+    jqGrid.Id = CommWebSetup.MasterGridID;
+
+    jqGrid.GridModule = new jqGrid.gridMasterObject();
+    jqGrid.GridModule.caption = (String)ViewBag.Caption;
+    jqGrid.GridModule.url = Url.Action("ajax_MasterGridData");
+    jqGrid.GridModule.height = 640;
+    jqGrid.GridModule.multiselect = false;
+    jqGrid.GridModule.ajaxGridOptions = new ProcCore.JqueryHelp.AjaxHelp.ajaxObject() { type = "post" };
+    jqGrid.GridModule.colModel = (jqGrid.colObject[])ViewData["array_ColModel"];
+    jqGrid.GridModule.autowidth = true;
+    
+    
+    jqGrid.GridModule.colNames = new String[] { 
+        Html.Lang("prog") ,
+        Html.Lang(PowersName.Controller.ToString()) ,
+        Html.Lang(PowersName.Manage.ToString()) ,
+        Html.Lang(PowersName.List.ToString()) ,
+        Html.Lang(PowersName.AddNew.ToString()) ,
+        Html.Lang(PowersName.Modify.ToString()) ,
+        Html.Lang(PowersName.Delete.ToString()) 
+        //Html.Lang(PowersName.Verify.ToString()) ,
+        //Html.Lang(PowersName.Rely.ToString()) ,
+        //Html.Lang(PowersName.Print.ToString()) ,
+    };
+}
+
+<label for="Unit">@Html.Lang("unit") ：</label>
+@Html.DropDownList("Unit", (List<SelectListItem>)ViewBag.Unit_Option)
+@Html.Raw(jqGrid.ToScriptString())
+<script type="text/javascript">
+    var gridId = '@jqGrid.Id';
+
+    $(document).ready(function () {
+        $('#Unit').change(function () {
+            if ($(this).val() == "")
+                $('.PowerCheckBox').attr('disabled', $(this).val() == "");
+            else
+                $('.PowerCheckBox').removeAttr('disabled');
+
+            $('#' + gridId).setGridParam({ postData: null });
+            $('#' + gridId).setGridParam({
+                postData: {
+                    unit: $('#Unit').val()
+                }
+            });
+            $('#' + gridId).trigger('reloadGrid');
+
+        });
+    }).on("change", ".PowerCheckBox", null, function () {
+        $.post("ajax_UpdateUnitData",
+            {
+                power: $(this).attr("PowerID"),
+                prog: $(this).val(),
+                unit: $("#Unit").val(),
+                check: $(this).prop("checked")
+            },
+            function (data, textStatus, jqXHR) {
+                $.UiMessage(data);
+            },
+            "json");
+    });
+
+    (function ($) {
+        $.fn.MakeCheckOBJ = function (cellValue, ajaxOptions, rowObject) {
+            var getQuery = $.CollectQuery();
+            var cellHtml;
+            var cellJson = jQuery.parseJSON(cellValue);
+            if (cellJson.IsManagement) {
+                var IsChecked = cellJson.HavePower ? 'CHECKED' : '';
+
+                if ($("#Unit").val() == "") {
+                    cellHtml = '<input class="PowerCheckBox" type="checkbox" disabled="true"/>';
+                } else {
+                    cellHtml = '<input class="PowerCheckBox" type="checkbox" value="' + ajaxOptions.rowId + '" PowerID="' + cellJson.Id + '" ' + IsChecked + '/>';
+                }
+            } else {
+                cellHtml = '';
+            }
+            return cellHtml;
+        }
+    })(jQuery);
+</script>

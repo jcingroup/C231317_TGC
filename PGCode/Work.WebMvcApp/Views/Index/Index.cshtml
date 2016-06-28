@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProcCore.Business.Logic.m_ProductData>
+@{
+  Layout = "~/Views/Shared/Layout.cshtml";
+  ViewBag.Title = "二手辦公家具回收,全新辦公家具買賣,辦公家具買賣回收,二手/全新辦公家具-TGC禾吉辰辦公家具";
+  ViewBag.Keywords = "辦公家具,辦公家具買賣,辦公家具回收,辦公家具買賣回收,全新辦公家具買賣,二手辦公家具回收,二手辦公家具買賣回收,辦公桌,辦公椅,屏風,二手辦公家具,辦公家具設備";
+  ViewBag.Description = "TGC禾吉辰辦公家具,專營辦公家具買賣回收,全新辦公家具買賣,二手辦公家具買賣回收,辦公室規劃裝潢,辦公設備,辦公桌/辦公椅/沙發/屏風/會議桌/檔案櫃,全新辦公家具買賣,中古二手辦公家具買賣,辦公家具買賣回收,經驗豐富/價格公道/誠信經營/專業服務。";
+  }
+
+@section styles {
+<link rel="stylesheet" href="~/Content/css/index.css">
+}
+
+@section JScript {
+<script src="~/Scripts/jquery.scrollbox.js"></script>
+<script>
+    $('.marquee').scrollbox({
+      linear: true,
+      step: 1,
+      delay: 0,
+      speed: 100
+    });
+</script>
+}
+
+
+
+<ul class="intro">
+	<li><a class="i1" href="~/Products/Products_second?sid=0">新進產品 NEW</a></li>
+	<li><a class="i2" href="~/Products/Products_second?sid=8">特價商品 ON SALE</a></li>
+	<li><a class="i3" href="~/Products/Products_second">二手辦公家具 Second Hand</a></li>
+</ul>
+
+<div id="content">
+	<h3><em>01</em>WELCOME</h3>
+	<p>鑒於每個公司辦公室規劃因成本考量，及搬遷改裝的專業服務等越來越多的需求，進而從傳統服務方式，加強網路行銷及與客戶互動服務的方便及效率，成立二手辦公家具買賣網，提供相關線上服務，讓您能不出門也能為自己的公司添購辦公家具，或要求提供搬遷及公司內部改裝之服務。希望成立本網站後，各個公司企業能有更方便的選擇，節省您的寶貴時間及成本，我們專業的服務更能滿足您的需求！</p>
+	<a class="btn" href="~/AboutUs/AboutUs">MORE</a>
+</div><!-- content //-->
+
+<div id="sidebar">
+	<h3><em>02</em>新進產品</h3>
+    <div class="marquee">
+        <ul>
+            @{ 
+                foreach(var item in Model){
+                    <li>
+                        <a class="pic" href="~/Products/Products_second3/@item.ID?sid=0">
+                            <img src="@Html.ImgSrc("Sys_Active", "ProductData", item.ID, "ListIcon", 236)">
+                        </a>
+                        <a href="~/Products/Products_second3/@item.ID?sid=0">
+                            <span><em>@item.SetDate.ToShortDateString()</em>@item.Name</span>
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div><!-- sidebar //-->

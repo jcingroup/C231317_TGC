@@ -1,0 +1,105 @@
+﻿@model ProcCore.Business.Logic.m_ProductData
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "二手辦公家具回收,辦公家具買賣,二手辦公家具,-TGC禾吉辰辦公家具";
+    ViewBag.Keywords = "二手辦公家具,二手辦公家具回收,二手辦公家具,辦公家具買賣,辦公家具回收,辦公家具買賣回收,全新辦公家具買賣,二手辦公家具買賣回收,辦公桌,辦公椅,辦公家具,辦公設備";
+    ViewBag.Description = "二手辦公家具買賣回收,全面回收買賣您不用的二手辦公家具!為您評估手邊的中古辦公家具,二手辦公家具回收買賣價值,可線上估算辦公家具買賣價格!辦公家具買賣回收,購置二手辦公家具,全新辦公家具,辦公桌/辦公椅/沙發/屏風/會議桌/檔案櫃,TGC禾吉辰辦公家具!";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/Content/css/page.css">
+}
+
+@Html.Partial("sidebar")
+
+<ul class="breadCrumb">
+    <li><a href="~/index">HOME</a></li>
+    <li><a href="~/Products/Products_second">二手辦公家具</a></li>
+    <li><a href="~/Products/Products_second?sid=@ViewBag.Nur">@ViewBag.Series</a></li>
+    <li>@ViewBag.Kind</li>
+</ul>
+
+<div id="content">
+
+    <h3><em>02</em>二手辦公家具</h3>
+
+    <h4>@ViewBag.Series/ @ViewBag.Kind</h4>
+
+    <div class="info">
+        <h4><em>產品編號 @Model.Code</em>@Model.Name</h4>
+        @Html.Raw(Model.Standard)
+        <span>
+            售價:<em>NT$@Model.Price/@Model.UnitName</em>
+        </span>
+        <i>點選左方產品照片可放大</i>
+    </div>
+
+    <div class="product-pics flexslider">
+        <ul class="slides">
+            @{
+
+                var imgo = Html.ImagesAppendInfo("Sys_Active", "ProductData", Model.ID, "ListMore");
+                var imgs = Html.ImagesAppendInfo("Sys_Active", "ProductData", Model.ID, "ListMore", 300);
+                int i = 0;
+            }
+            @foreach (var img in imgs)
+            {
+                <li>
+                    <a class="fancybox" href="@imgo[i]">
+                        <img src="@img" />
+                    </a>
+                </li>
+                i++;
+            }
+        </ul>
+    </div>
+    <div class="thumb flexslider">
+        <ul class="slides">
+
+            @foreach (var img in imgs)
+            {
+                <li>
+                    <img src="@img" />
+                </li>
+            }
+        </ul>
+    </div>
+
+    <h4>詳細說明</h4>
+    <div class="detail">
+        @Html.Raw(Model.Content)
+    </div>
+
+    <div class="align-r">
+        <a class="btn" href="~/Products/Products_second2?sid=@ViewBag.Nur">BACK</a>
+        <a class="btn" href="#header">▲TOP</a>
+    </div><!-- align-r //-->
+
+</div><!-- content //-->
+<script src="~/Scripts/jquery.flexslider-min.js"></script>
+<script>
+    $(function () {
+        $(".fancybox").fancybox();
+        $('.thumb').flexslider({
+            animation: "slide",
+            controlNav: false,
+            prevText: "<i class='fa fa-chevron-circle-left'></i>",
+            nextText: "<i class='fa fa-chevron-circle-right'></i>",
+            animationLoop: false,
+            slideshow: false,
+            itemWidth: 92,
+            itemMargin: 5,
+            asNavFor: '.product-pics'
+        });
+
+        $('.product-pics').flexslider({
+            animation: "slide",
+            controlNav: false,
+            prevText: "<i class='fa fa-chevron-circle-left'></i>",
+            nextText: "<i class='fa fa-chevron-circle-right'></i>",
+            animationLoop: false,
+            slideshow: false,
+            sync: ".thumb"
+        });
+    });
+</script>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProcCore.Business.Logic.m_ProductKind>
+@{
+  Layout = "~/Views/Shared/Layout.cshtml";
+  ViewBag.Title = "二手辦公家具回收,辦公家具買賣,二手辦公家具,-TGC禾吉辰辦公家具";
+  ViewBag.Keywords = "二手辦公家具,二手辦公家具回收,二手辦公家具,辦公家具買賣,辦公家具回收,辦公家具買賣回收,全新辦公家具買賣,二手辦公家具買賣回收,辦公桌,辦公椅,辦公家具,辦公設備";
+  ViewBag.Description = "二手辦公家具買賣回收,全面回收買賣您不用的二手辦公家具!為您評估手邊的中古辦公家具,二手辦公家具回收買賣價值,可線上估算辦公家具買賣價格!辦公家具買賣回收,購置二手辦公家具,全新辦公家具,辦公桌/辦公椅/沙發/屏風/會議桌/檔案櫃,TGC禾吉辰辦公家具!";
+  }
+
+@section styles {
+<link rel="stylesheet" href="~/Content/css/page.css">
+<script src="~/Scripts/productPage.js"></script>
+}
+
+@Html.Partial("sidebar")
+
+<ul class="breadCrumb">
+	<li><a href="~/index">HOME</a></li>
+	<li><a href="~/Products/Products_second">二手辦公家具</a></li>
+	<li>@ViewBag.Series</li>
+</ul>
+
+<div id="content">
+	
+	<h3><em>02</em>二手辦公家具</h3>
+	
+	<h4>@ViewBag.Series/</h4>
+	
+	<ol class="prolist">
+        @foreach (var item in Model) { 
+		<li>
+			<a href="~/Products/Products_second2?sid=@ViewBag.Nur&kid=@item.ID"><img src="@Html.ImgSrc("Sys_Active","ProductKind",item.ID,"ListIcon",236)"></a>
+			@*<span>@item.Name<em>產品編號 @item.Code</em></span>*@
+		</li>
+        }
+		
+	</ol>
+
+	<ul class="page">
+        <li class="prev"><a href="~/Products/Products_second?page=@ViewBag.prvePage&sid=@ViewBag.sid">上一頁</a></li>
+        <li class="current">
+            <select onchange="changePage1(this,@ViewBag.sid)">
+                @for (var i = 1; i <= ViewBag.totalPage; i++)
+                {
+                    if (i == ViewBag.page)
+                    {
+                        <option value="@i" selected>@i</option>
+                    }
+                    else
+                    {
+                        <option value="@i">@i</option>
+                    }
+                }
+            </select>
+
+        </li>
+        <li class="next"><a href="~/Products/Products_second?page=@ViewBag.nextPage&sid=@ViewBag.sid">下一頁</a></li>
+	</ul>
+	
+	<div class="align-r">
+		<a class="btn" href="#header">▲TOP</a>
+	</div><!-- align-r //-->
+	
+</div><!-- content //-->

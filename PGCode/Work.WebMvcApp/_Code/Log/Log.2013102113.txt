@@ -1,0 +1,2 @@
+﻿2013-10-21 13:50:30.857=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCode\Work.WebMvcApp\_Code\WebDB\C23A0_TGC.sdf,SeCreateFile ]
+2013-10-21 13:54:57.450=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCode\Work.WebMvcApp\_Code\WebDB\C23A0_TGC.sdf,SeCreateFile ]

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<document>
+  
+  <file>
+    <name>category.html</name>
+    <sort>1</sort>
+    <memo>全新商品分類管理</memo>
+  </file>
+  
+  <file>
+    <sort>2</sort>
+    <name>product.html</name>
+    <!--須和檔名相同*/-->
+    <memo>全新商品資料維護</memo>
+  </file>
+  
+  <file>
+    <name>category2.html</name>
+    <sort>3</sort>
+    <memo>二手商品分類管理</memo>
+  </file>
+  
+  <file>
+    <name>product2.html</name>
+    <sort>4</sort>
+    <memo>二手商品資料維護</memo>
+  </file>
+
+</document>

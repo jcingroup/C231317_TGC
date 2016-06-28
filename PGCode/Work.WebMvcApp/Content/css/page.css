@@ -1,0 +1,282 @@
+﻿@import "base/basic.css";
+@import "base/layout.css";
+@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+@charset "utf-8";
+
+/*-- layout --*/
+#content h4,
+#content h5,
+#content p,
+#content cite,
+form {
+	margin-left:38px;
+	}
+
+/*-- 產品列表 --*/
+.prolist {
+	overflow:hidden;
+	margin:0 0 15px 30px;
+	}
+.prolist li {
+  float:left;
+  margin-bottom:20px;
+  padding:8px 6px 0 6px;
+  width:236px;
+  background:url('../images/Products/proBg.gif') no-repeat center top;
+	}
+.prolist img {
+  max-width:100%;
+  max-height:178px;
+  margin:0;
+  vertical-align: middle; /* 垂直置中,父層需設line-heigh才有效 */
+	}
+.prolist li a,
+.prolist dt a {
+  display: block;
+  width: 236px;
+  height:178px;
+  text-align: center; /* 水平置中 */
+  line-height : 178px; /* 垂直置中 */
+  cursor:pointer;
+  }
+.prolist li a {
+    margin-bottom:10px;
+  }
+.prolist span {
+	display:block;
+	color:#4D4D4D;
+	font-size:1.4em;
+	font-weight:bold;
+	line-height:110%;
+	margin:0 4px;
+	}
+.prolist em {
+	display:block;
+	color:#A0806C;
+	font-size:.7em;
+	font-weight:bold;
+	}
+
+.prolist dt {
+  float:left;
+  width:255px;
+  height:192px;
+  padding:8px 0 0 10px;
+  background:url('../images/Products/proBg.gif') no-repeat left top;
+	}
+.prolist dd {
+	margin-left:220px;
+	}
+.prolist h5 {
+	font-size:1.4em;
+	line-height:120%;
+	margin:0 0 7px 0;
+	}
+.page {
+	margin-bottom:30px;
+	text-align:center;
+}
+.page li {
+	display:inline-block;
+	font-size:0.8em;
+}
+.page li a {
+	display:block;
+	padding:3px 6px;
+	color:#9B7760;
+	border:1px solid #EDEDE3;
+}
+.page li a:hover,
+.page li.current a
+ {
+ 	color:#9B7760;
+ 	background:#EDEDE3;
+}
+.page li.prev a,
+.page li.next a {
+	border:none;
+}
+.page li.prev a:hover,
+.page li.next a:hover {
+	color:#66B62E;
+	background: none;
+}
+
+/*-- 產品介紹 --*/
+.info {
+	width:400px;
+	height:275px;
+	margin-top:8px;
+	float:right;
+}
+#content .info h4 {
+	margin:0 0 15px 0;
+	color:#876E43;
+}
+.info h4 em {
+	display: block;
+	font-weight: normal;
+	font-size: 0.6em;
+	color:#A0806C;
+}
+.info span {
+	display: block;
+	margin-top:20px;
+	font-weight: bold;
+	font-size: 1.3em;
+	color:#F3981C;
+}
+.info span em {
+	margin-left:10px;
+	font-weight: bold;
+	color:#C1272D;
+}
+.info i {
+    display:block;
+    font-style:normal;
+    margin-top:10px;
+}
+#content .info p {
+    margin:0;
+}
+#content .thumb + h4 {
+	margin-left:0;
+}
+#content .detail {
+	margin-bottom:20px;
+}
+#content .detail p {
+	margin:0;
+}
+/* 換圖特效 */
+.product-pics {
+	width:360px;
+	height:275px;
+	position:relative;
+	float:left;
+	margin-top:8px;
+	margin-bottom:20px;
+	background:#F9FAFB;
+	box-shadow: 0 0 5px #ccc;
+}
+.product-pics .slides a {
+	display:block;
+  	width: 350px;
+  	height:265px;
+  	padding:5px;
+  	text-align: center;
+  	line-height: 265px;
+}
+.product-pics .slides a img,
+.thumb .slides li img {
+	max-width:100%;
+	max-height:100%;
+	vertical-align: middle; 
+}
+.thumb {
+	position:relative;
+	margin-bottom:20px;
+	clear:both;
+}
+.thumb .slides li {
+	width:88px;
+	height:66px;
+	margin-right:10px;
+	padding:2px;
+	text-align: center;
+	line-height: 66px;
+	border:1px solid #dedede;
+	cursor:pointer;
+}
+.thumb .slides li:hover {
+	opacity: 0.8;
+}
+.flex-prev, .flex-next {
+	position:absolute;
+	top:50%;
+	margin-top:-0.7em;
+	font-size:1.4em;
+	color:#F3971C;
+	opacity: 0.5;
+}
+.flex-prev:hover, .flex-next:hover {
+	color:#F3971C;
+	opacity: 1;
+}
+.flex-prev {
+	left:10px;
+}
+.flex-next {
+	right:10px;
+}
+.flex-disabled {
+	display: none;
+}
+	
+/*-- Contact Us --*/
+form {
+	border-top:1px dashed #ccc;
+	margin:10px 0 10px 38px;
+	}
+form em {
+	color:#EA0000;
+	margin-right:3px;
+	}
+#content form p {
+	border-bottom:1px dashed #ccc;
+	padding:10px 0;
+	margin:0;
+	}
+label {
+	display:inline-block;
+	vertical-align:middle;
+	text-align:right;
+	color:#9C7163;
+	width:70px;
+	padding:0 10px;
+	}
+label.error {width:auto; margin-left:-5px;}
+input,
+textarea {
+	background:#f9f9f9;
+	border:1px solid #DED8CB;
+	padding:1px 5px;
+	vertical-align:middle;
+	}
+input.error {background:#FFF0F3;}
+.large {
+	width:400px;
+	}
+.small {
+	width:50px;
+	}
+textarea {
+	width:400px; height:100px;
+	text-align:left;
+	vertical-align:top;
+	}
+form .btn {
+	margin:15px 0 0 95px;
+	}
+
+
+/*-- About Us --*/
+.map {
+  float:left;
+  width:360px;
+  margin-left:26px;
+  }
+
+
+/*-- 色卡 --*/
+.Info .tab {
+	margin:10px 0 10px 33px;
+}
+.Info .tab li {
+	display:inline-block;
+	margin:0 5px 10px 0;
+}
+.Info .tab .btn.current {
+	background:#66B62E;
+}

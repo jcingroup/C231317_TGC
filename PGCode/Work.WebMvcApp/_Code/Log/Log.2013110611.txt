@@ -1,0 +1,12 @@
+﻿2013-11-06 11:02:17.121=>無法載入檔案或組件 'MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d' 或其相依性的其中之一。 系統找不到指定的檔案。
+2013-11-06 11:03:32.065=>無法載入檔案或組件 'MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d' 或其相依性的其中之一。 系統找不到指定的檔案。
+2013-11-06 11:03:52.319=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCode\Work.WebMvcApp\_Code\WebDB\C23A0_TGC.sdf,SeCreateFile ]
+2013-11-06 11:03:52.642=>[LogicError][I:0,::1,IE.10.0][a_ProductData.SearchMaster][M:<[不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCode\Work.WebMvcApp\_Code\WebDB\C23A0_TGC.sdf,SeCreateFile ]][   於 System.Data.SqlServerCe.SqlCeConnection.Open(Boolean silent)
+   於 System.Data.SqlServerCe.SqlCeConnection.Open()
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_ProductData.SearchMaster(q_ProductData qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C23617_禾吉辰二手辦公家具\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 5265]>]

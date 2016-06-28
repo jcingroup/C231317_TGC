@@ -1,0 +1,197 @@
+﻿@model ProcCore.Business.Logic.m_ProgData
+@using ProcCore;
+@using ProcCore.WebCore;
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.FormvValidate;
+@using ProcCore.JqueryHelp.CustomButton;
+@using ProcCore.Business.Logic;
+
+@section IncludeScript{
+    @Html.Partial("Manage/includeScript_Comm")}
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    FormValidateSetup val_frm_a = new FormValidateSetup(new jqSelector() { IdName = CommWebSetup.eleNameMasterDataForm });
+
+    //以下為欄位規則設定
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.prog_name, new FieldRule { required = true }, null, null));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.sort, new FieldRule { required = true }, null, new Dictionary<String, String>() { { "SortFalseCheck", "true" }, { "SortTrueCheck", "true" } }));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.area, new FieldRule { required = true }, null, null));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.controller, new FieldRule { }, null, new Dictionary<String, String>() { { "FolderFalseCheck", "true" }, { "FolderTrueCheck", "true" } }));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.action, new FieldRule { }, null, new Dictionary<String, String>() { { "FolderTrueCheck", "true" } }));
+
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.power_serial, new FieldRule { required = true }, null, null));
+    //mFormHelper.LastAppenScript += Html.SetCommCKEditor("Context");
+
+    jqSelector jq_for_btn_rtn = new jqSelector() { IdName = "btn_return_list" };
+    jqSelector jq_for_btn_sbm = new jqSelector() { IdName = "btn_submit" };
+
+    funcMethodModule func = Html.CommSetFormOnSuccesss();
+}
+
+@using (Ajax.BeginForm(null, null, new AjaxOptions() { Url = Url.Action(CommWebSetup.acNameMasterDataUpdateData), HttpMethod = "post", OnSuccess = func.funcName }, new { id = CommWebSetup.eleNameMasterDataForm }))
+{
+
+    @Html.HiddenFor(x => x.id)
+    @Html.HiddenFor(x => x.EditType)
+    @Html.HiddenFor(x => x.ismb, new { @value=false})
+    
+    <input type="hidden" id="returnQueryString" name="returnQueryString" value="@Html.Raw(ViewBag.QueryString)" />
+    <div class="@ViewBag.css_Edit_Master_CaptionCss">
+        @ViewBag.Caption
+    </div>
+    <div class="@ViewBag.css_EditFormNoteCss">
+        @Resources.Res.Info_StarMustEdit
+    </div>
+    
+    <fieldset>
+        <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Html.Lang("BaseData")</legend>
+        <table>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.prog_name)</label></th>
+                <td>@Html.TextBoxFor(x => x.prog_name, new { @maxlength = 24, @size = 48 })</td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.sort)</label></th>
+                <td>@Html.TextBoxFor(x => x.sort, new { @maxlength = 24, @size = 48 })</td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.area)</label></th>
+                <td>@Html.TextBoxFor(x => x.area, new { @maxlength = 24, @size = 48 })</td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.controller)</label></th>
+                <td>@Html.TextBoxFor(x => x.controller, new { @maxlength = 24, @size = 48 })</td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.action)</label></th>
+                <td>@Html.TextBoxFor(x => x.action, new { @maxlength = 24, @size = 48 })</td>
+            </tr>
+
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.isfolder)</label></th>
+                <td>@Html.RadioButtonFor(x => x.isfolder, true) @Html.Lang("true")
+                    @Html.RadioButtonFor(x => x.isfolder, false)@Html.Lang("false") </td>
+            </tr>
+
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.ishidden)</label></th>
+                <td>@Html.RadioButtonFor(x => x.ishidden, true) @Html.Lang("true")
+                    @Html.RadioButtonFor(x => x.ishidden, false)@Html.Lang("false") </td>
+            </tr>
+            <tr>
+
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.power_serial)</label></th>
+                <td>
+                    @foreach (Power p in Model.PowerItem.Powers)
+                    {
+
+                        if (p.IsManagement)
+                        {
+                        <input type="checkbox" name="GetPowerItems" value="@p.ManagementIntSerial" checked="checked"/>@p.name    
+                        }
+                        else
+                        {
+                        <input type="checkbox" name="GetPowerItems" value="@p.ManagementIntSerial"/>@p.name    
+                        }
+                    }
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <div class="@ViewBag.css_EditFormNavigationFunctionCss">
+        <button type="submit" id="@jq_for_btn_sbm.IdName">
+            @(Model.EditType == EditModeType.Insert ? Resources.Res.Button_Sure_Insert : Resources.Res.Button_Sure_Modify)
+        </button>
+        <button type="button" id="@jq_for_btn_rtn.IdName">@Resources.Res.Button_Return</button>
+    </div>
+}
+
+@{
+    //===
+    jqButton btn_sbm_fmwk = new jqButton(new jqSelector() { IdName = jq_for_btn_sbm.IdName });
+    btn_sbm_fmwk.options.icons.primary = FrameworkIcons.ui_icon_check;
+
+    //===
+    jqButton btn_rtn_fmwk = new jqButton(jq_for_btn_rtn);
+    btn_rtn_fmwk.options.icons.primary = FrameworkIcons.ui_icon_arrowreturnthick_1_w;
+
+    jqElementEvent btn_rtn_evt_clk = new jqElementEvent(jq_for_btn_rtn);
+    btn_rtn_evt_clk.events.Add(new jqElementEvent.jqEvents() { htmlElementEvent = HtmlObjectEvent.click, funcString = "document.location.href='" + Url.Action(CommWebSetup.acNameEditFormReturnGridList) + "?' + $('#returnQueryString').val();" });
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        @Html.Raw(val_frm_a.ToScriptString())
+        @Html.Raw(btn_sbm_fmwk.ToScriptString())
+        @Html.Raw(btn_rtn_fmwk.ToScriptString())
+        @Html.Raw(btn_rtn_evt_clk.ToScriptString())
+        @Html.Raw(func.ToScriptString())
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        jQuery.validator.addMethod("FolderFalseCheck", function (value, element, param) {
+            if ($('input[name=isfolder]:checked').val() == 'False') {
+                if ($('#controller').val() == '') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }, "控製器不可空白");
+
+        jQuery.validator.addMethod("FolderTrueCheck", function (value, element, param) {
+            if ($('input[name=isfolder]:checked').val() == 'True') {
+                if ($('#controller').val().length > 0 || $('#action').val().length > 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }, "目錄分類為True請勿填寫Controller或Action");
+
+
+        jQuery.validator.addMethod("SortFalseCheck", function (value, element, param) {
+            if ($('input[name=isfolder]:checked').val() == 'False') {
+                var regex = /^F[0-9A-Z]{3}P[0-9A-Z]{3}$/;
+                if (regex.test(value))
+                    return true;
+                else
+                    return false;
+            } else {
+                return true;
+            }
+        }, "排序字串格式不正確 EX:P100F100");
+
+        jQuery.validator.addMethod("SortTrueCheck", function (value, element, param) {
+
+            if ($('input[name=isfolder]:checked').val() == 'True') {
+                var regex = /^F[0-9A-Z]{3}$/;
+                if (regex.test(value))
+                    return true;
+                else
+                    return false;
+            } else {
+                return true;
+            }
+
+        }, "排序字串格式不正確 EX:P100");
+    });
+
+    (function ($) {
+    })(jQuery);
+</script>

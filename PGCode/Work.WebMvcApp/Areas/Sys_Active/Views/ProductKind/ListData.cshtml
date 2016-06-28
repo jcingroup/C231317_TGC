@@ -1,0 +1,86 @@
+﻿@model ProcCore.Business.Logic.q_ProductKind
+
+@using ProcCore.Business.Logic.TablesDescription
+@using ProcCore.JqueryHelp
+@using ProcCore.JqueryHelp.JQGridScript
+@using ProcCore.JqueryHelp.FormvValidate;
+@using ProcCore.JqueryHelp.CustomButton;
+
+
+@section IncludeScript{
+    @Html.Partial("Manage/includeScript_Comm")
+    @Html.Partial("Manage/includeScript_Grid")
+}
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    ProductKind Tab = new ProductKind();
+
+    //定義Grid需格式化的欄位
+    FormatterColumnScript f_col_id = new FormatterColumnScript();
+    f_col_id.FunctionName = CommWebSetup.funNameMasterDataFormatterID;
+    f_col_id.FunctionString = Html.GridIDColumnCommScriptContext(CommWebSetup.MasterGridID, Url.Action(CommWebSetup.acNameEditMasterDataByID));
+
+    jqGrid gridobj = Html.jqGrid_Standard(
+    CommWebSetup.MasterGridID,
+    (String)ViewBag.Caption,
+    ViewData["Page"].ToString(),
+    ViewData["AppendQuertString"].ToString(),
+    Url.Action(CommWebSetup.acNameMasterDataGridUrl),
+    Url.Action(CommWebSetup.acNameMasterDataDelete),
+    Url.Action(CommWebSetup.acNameEditMasterDataAddNew),
+    CommWebSetup.MasterGridDefHight, 10, null,
+    new MakeColumnModule() { CN = Resources.Res.ColModify, CM = { name = Tab.ID.M, key = true, width = "30px", AssignFormatter = f_col_id } },
+    new MakeColumnModule() { CN = Html.FLang(Tab.Series.M), CM = { name = Tab.Series.M, width = "100px", align = "center" } },
+    new MakeColumnModule() { CN = Html.FLang(Tab.Name.M), CM = { name = Tab.Name.M, width = "130px" } },
+    new MakeColumnModule() { CN = Html.FLang(Tab.IsOpen.M), CM = { name = Tab.IsOpen.M, width = "40px", align = "center" } },
+    new MakeColumnModule() { CN = Html.FLang(Tab.IsSecond.M), CM = { name = Tab.IsSecond.M, width = "40px", align = "center" } },
+    new MakeColumnModule() { CN = Html.FLang(Tab.Sort.M), CM = { name = Tab.Sort.M, width = "40px", align = "center" } }
+    );
+    gridobj.ToScriptHandle();
+}
+<form>
+    <fieldset>
+                @{ List<SelectListItem> isSec = new List<SelectListItem>();
+           isSec.Add(new SelectListItem(){Text = "二手", Value=true.ToString() });
+           isSec.Add(new SelectListItem() { Text = "全新", Value = false.ToString(), Selected = true });
+        }
+        <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Resources.Res.Search</legend>
+        @Html.HiddenFor(x => x.page)
+        @Html.LabelFor(x => x.s_Name, Html.Lang(x => x.s_Name))：@Html.TextBoxFor(x => x.s_Name)
+        @Html.DropDownListFor(x => x.s_IsSecond, isSec)
+        <button type="button" id="@CommWebSetup.eleNameSearchButton">@Resources.Res.Search</button>
+    </fieldset>
+</form>
+@Html.Raw(gridobj.jqGridHtml)
+@Html.OpenDialogPlugin(ViewData["DialogTitle"].ToString(), ViewData["DialogMessage"].ToString())
+@{
+    FormValidateSetup val_frm_a = new FormValidateSetup(new jqSelector() { IdName = CommWebSetup.eleNameSearchForm });
+    //
+    jqSelector jqId_btn_sch = new jqSelector() { IdName = CommWebSetup.eleNameSearchButton };
+    //
+    jqButton btn_sch_fmwk = new jqButton(jqId_btn_sch);
+    btn_sch_fmwk.options.icons.primary = FrameworkIcons.ui_icon_search;
+    //
+    jqElementEvent btn_sch_evt_clk = new jqElementEvent(jqId_btn_sch);
+    btn_sch_evt_clk.events.Add(new jqElementEvent.jqEvents()
+    {
+        htmlElementEvent = HtmlObjectEvent.click,
+        funcString = @"
+$('#" + CommWebSetup.MasterGridID + @"').setGridParam({postData: null});
+$('#" + CommWebSetup.MasterGridID + @"')." + Html.setGridParam_postData(x => x.s_Name) + @"
+$('#" + CommWebSetup.MasterGridID + @"')." + Html.setGridParam_postData(x => x.s_IsSecond) + @"
+$('#" + CommWebSetup.MasterGridID + @"').trigger('reloadGrid');"
+    });
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        @Html.Raw(gridobj.jqGridScript)
+        @Html.Raw(btn_sch_fmwk.ToScriptString())
+        @Html.Raw(btn_sch_evt_clk.ToScriptString())
+    });
+    (function ($) {
+        @Html.Raw(gridobj.jqFormatterScript)
+    })(jQuery);
+</script>
