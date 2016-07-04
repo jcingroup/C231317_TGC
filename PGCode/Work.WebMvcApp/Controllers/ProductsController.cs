@@ -67,11 +67,11 @@ namespace DotWeb.WebApp.Controllers
 
 
 
-            if (r.SearchData.Any())
+            if (pr.SearchData.Any())
             {
                 int? kind_id = r.SearchData.First().ID;
                 var getid = p.SearchMaster(new q_ProductData() { s_Kind = kind_id }, 0);
-                if (r.SearchData.Count() == 1 && getid.SearchData.Any())
+                if (pr.SearchData.Count() == 1 && getid.SearchData.Any())
                 { //如果此種類(kid)只有一項就直接跳到product_second3去顯示
 
                     int id = getid.SearchData.First().ID;
@@ -130,11 +130,12 @@ namespace DotWeb.WebApp.Controllers
         public ActionResult Products_second(int? sid, int? page)
         {
             if (sid == null) { sid = 1; }
-            if (Convert.ToInt32(sid) == 0 || Convert.ToInt32(sid) == 8 || Convert.ToInt32(sid) == 9) { return RedirectToAction("Products_second2", "Products", new { sid = sid }); }
+            //if (Convert.ToInt32(sid) == 0 || Convert.ToInt32(sid) == 8 || Convert.ToInt32(sid) == 9) { return RedirectToAction("Products_second2", "Products", new { sid = sid }); }
+            if (Convert.ToInt32(sid) == 9) { return RedirectToAction("Products_second2", "Products", new { sid = sid }); }
 
             ViewBag.BodyClass = "Products second";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "", "新進商品", "特價商品" };
 
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";
@@ -174,8 +175,8 @@ namespace DotWeb.WebApp.Controllers
         public ActionResult Products_second2(int? sid, int? kid, int? page)
         {
             ViewBag.BodyClass = "Products second";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "", "新進商品", "特價商品" };
             if (sid == null) { sid = 1; }
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";
@@ -197,20 +198,24 @@ namespace DotWeb.WebApp.Controllers
                 ViewBag.kind = r.SearchData.First().Name;
                 q.s_Kind = kid;
             }
-            if (r.SearchData.Any())
+
+
+            pr = p.SearchMaster(q, 1);
+
+            #region 判斷是否要跳到第三頁
+            if (pr.SearchData.Any())
             {
                 int? kind_id = r.SearchData.First().ID;
                 var getid = p.SearchMaster(new q_ProductData() { s_Kind = kind_id }, 0);
-                if (r.SearchData.Count() == 1 && getid.SearchData.Any())
+                if (pr.SearchData.Count() == 1 && getid.SearchData.Any())
                 { //如果此種類(kid)只有一項就直接跳到product_second3去顯示
 
                     int id = getid.SearchData.First().ID;
                     Response.Redirect("~/Products/Products_second3/" + id + "?sid=" + sid);
                 }
             }
+            #endregion
 
-
-            pr = p.SearchMaster(q, 1);
 
             page = page == null ? 1 : page;
 
@@ -242,7 +247,8 @@ namespace DotWeb.WebApp.Controllers
         {
             a_ProductData b = new a_ProductData() { Connection = getSQLConnection(), logPlamInfo = plamInfo };//資料庫連線,取得登入者資訊
             var a = b.GetDataMaster(id, 0);
-            if (a.SearchData == null) {
+            if (a.SearchData == null)
+            {
                 return Redirect("~/error.html");
             }
 
@@ -253,8 +259,8 @@ namespace DotWeb.WebApp.Controllers
             ViewBag.kind = tmp;//放進viewbag裡
 
             ViewBag.BodyClass = "Products second";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "", "新進商品", "特價商品" };
             if (sid == null) { sid = 1; }
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";

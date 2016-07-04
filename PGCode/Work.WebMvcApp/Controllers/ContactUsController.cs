@@ -23,7 +23,7 @@ namespace DotWeb.WebApp.Controllers
         public ActionResult ContactUs()
         {
             ViewBag.BodyClass = "ContactUs";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
         

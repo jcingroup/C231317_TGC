@@ -57,31 +57,35 @@
             </tr>
             <tr>
                 <th class="@ViewBag.css_EditFormFieldsNameCss">
-                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Name)</label></th>
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Name)</label>
+                </th>
                 <td colspan="3">@Html.TextBoxFor(x => x.Name, new { @maxlength = 128, @size = 64 })</td>
             </tr>
-            
+
             @*<tr>
-                <th class="@ViewBag.css_EditFormFieldsNameCss">
-                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Code)</label></th>
-                <td colspan="3">@Html.TextBoxFor(x => x.Code, new { @maxlength = 128, @size = 32 })</td>
-            </tr>*@
+                    <th class="@ViewBag.css_EditFormFieldsNameCss">
+                        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Code)</label></th>
+                    <td colspan="3">@Html.TextBoxFor(x => x.Code, new { @maxlength = 128, @size = 32 })</td>
+                </tr>*@
 
             @{
-                List<SelectListItem> Series_Option = new List<SelectListItem>();
-                Series_Option.Add(new SelectListItem(){Value= "1",Text="屏風系列"});
-                Series_Option.Add(new SelectListItem(){Value= "2",Text="辦公桌系列"});
-                Series_Option.Add(new SelectListItem(){Value= "3",Text="會議桌系列"});
-                Series_Option.Add(new SelectListItem(){Value= "4",Text="檔案櫃系列"});
-                Series_Option.Add(new SelectListItem(){Value= "5",Text="主管辦公桌系列"});
-                Series_Option.Add(new SelectListItem(){Value= "6",Text="辦公椅系列"});
-                Series_Option.Add(new SelectListItem() { Value = "7", Text = "沙發系列" });
-                Series_Option.Add(new SelectListItem() { Value = "10", Text = "其他商品" });
-                ViewBag.Series_Option = Series_Option;
+    List<SelectListItem> Series_Option = new List<SelectListItem>();
+    Series_Option.Add(new SelectListItem() { Value = "12", Text = "新進商品" });
+    Series_Option.Add(new SelectListItem() { Value = "13", Text = "特價商品" });
+    Series_Option.Add(new SelectListItem() { Value = "1", Text = "屏風系列" });
+    Series_Option.Add(new SelectListItem() { Value = "2", Text = "辦公桌系列" });
+    Series_Option.Add(new SelectListItem() { Value = "3", Text = "會議桌系列" });
+    Series_Option.Add(new SelectListItem() { Value = "4", Text = "檔案櫃系列" });
+    Series_Option.Add(new SelectListItem() { Value = "5", Text = "主管辦公桌系列" });
+    Series_Option.Add(new SelectListItem() { Value = "6", Text = "辦公椅系列" });
+    Series_Option.Add(new SelectListItem() { Value = "7", Text = "沙發系列" });
+    Series_Option.Add(new SelectListItem() { Value = "10", Text = "其他商品" });
+    ViewBag.Series_Option = Series_Option;
             }
             <tr>
                 <th class="@ViewBag.css_EditFormFieldsNameCss">
-                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Series)</label></th>
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Series)</label>
+                </th>
                 <td>
                     @Html.DropDownListFor(x => x.Series, (List<SelectListItem>)ViewBag.Series_Option)
                 </td>
@@ -93,7 +97,8 @@
             </tr>
             <tr>
                 <th class="@ViewBag.css_EditFormFieldsNameCss">
-                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Sort)</label></th>
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Sort)</label>
+                </th>
                 <td colspan="3">@Html.TextBoxFor(x => x.Sort) 數字愈大排在愈前面</td>
             </tr>
 
@@ -129,17 +134,17 @@
 
     jqButton btn_opimgL_fmwk = new jqButton(new jqSelector() { IdName = jq_for_btn_opimgL_fmwk.IdName });
     btn_opimgL_fmwk.options.icons.primary = FrameworkIcons.ui_icon_arrow_4_diag;
-    
+
 }
 <script type="text/javascript">
-        @Html.Raw(val_frm_a.ToScriptString())
-        
-        @Html.Raw(btn_opimgL_fmwk.ToScriptString())
+    @Html.Raw(val_frm_a.ToScriptString())
 
-        @Html.Raw(btn_sbm_fmwk.ToScriptString())
-        @Html.Raw(btn_rtn_fmwk.ToScriptString())
-        @Html.Raw(btn_rtn_evt_clk.ToScriptString())
-        @Html.Raw(func.ToScriptString())
+    @Html.Raw(btn_opimgL_fmwk.ToScriptString())
+
+    @Html.Raw(btn_sbm_fmwk.ToScriptString())
+    @Html.Raw(btn_rtn_fmwk.ToScriptString())
+    @Html.Raw(btn_rtn_evt_clk.ToScriptString())
+    @Html.Raw(func.ToScriptString())
 </script>
 <script>
     (function ($) {

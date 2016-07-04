@@ -14,43 +14,43 @@ namespace DotWeb.WebApp.Controllers
         public ActionResult Info()
         {
             ViewBag.BodyClass = "Info";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
         public ActionResult Info2()
         {
             ViewBag.BodyClass = "Info";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
         public ActionResult Info3()
         {
             ViewBag.BodyClass = "Info";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
         public ActionResult Info4()
         {
             ViewBag.BodyClass = "Info";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
         public ActionResult Info5()
         {
             ViewBag.BodyClass = "Info";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
         public ActionResult Info6()
         {
             ViewBag.BodyClass = "Info";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
         public ActionResult Info7()
         {
             ViewBag.BodyClass = "Info";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
 

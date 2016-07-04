@@ -91,6 +91,8 @@
             </tr>
             @{
     List<SelectListItem> Series_Option = new List<SelectListItem>();
+    Series_Option.Add(new SelectListItem() { Value = "12", Text = "新進商品" });
+    Series_Option.Add(new SelectListItem() { Value = "13", Text = "特價商品" });
     Series_Option.Add(new SelectListItem() { Value = "1", Text = "屏風系列" });
     Series_Option.Add(new SelectListItem() { Value = "2", Text = "辦公桌系列" });
     Series_Option.Add(new SelectListItem() { Value = "3", Text = "會議桌系列" });
@@ -106,7 +108,7 @@
                     <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Series)</label>
                 </th>
                 <td>
-                    @Html.DropDownListFor(x => x.Series, (List<SelectListItem>)ViewBag.Series_Option, new { @onchange = "getKind(this)"})
+                    @Html.DropDownListFor(x => x.Series, (List<SelectListItem>)ViewBag.Series_Option, new { @onchange = "getKind(this.value)" })
                 </td>
             </tr>
             <tr>
@@ -120,15 +122,15 @@
                     }
                     else
                     {
-                        @Html.DropDownListFor(x => x.Kind, (List<SelectListItem>)ViewBag.SecondKind_Option, new { @id="sid"})
+                        @Html.DropDownListFor(x => x.Kind, (List<SelectListItem>)ViewBag.SecondKind_Option, new { @id = "sid" })
                     }
                 </td>
             </tr>
-            <tr>
+            <tr hidden>
                 <th class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.IsOnSell)</th>
                 <td>@Html.RadioButtonFor(x => x.IsOnSell, true) 是 @Html.RadioButtonFor(x => x.IsOnSell, false) 否</td>
             </tr>
-            <tr>
+            <tr hidden>
                 <th class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.IsNew)</th>
                 <td>@Html.RadioButtonFor(x => x.IsNew, true) 是 @Html.RadioButtonFor(x => x.IsNew, false) 否</td>
             </tr>
@@ -228,7 +230,7 @@
 
 
         console.log($('#Series').val());
-
+        var sid = $('#Series').val();
         if ($("input[name='IsSecond']:checked").val() == "False") {
             $("input[name='IsOnSell']").get(1).checked = true
             $("input[name='IsDisp']").get(1).checked = true
@@ -238,17 +240,19 @@
             $("input[name='IsDisp']").attr("disabled", "true")
             $("input[name='IsNew']").attr("disabled", "true")
             $('#Kind').empty();
-            @foreach(var item in (List<SelectListItem>)ViewBag.NewKind_Option ){
+            getKind(sid);
+            @*@foreach(var item in (List<SelectListItem>)ViewBag.NewKind_Option ){
                 @Html.Raw( "$('#Kind').append($('<option>"+item.Text+"</option>').val('"+item.Value+"').text('"+item.Text+"'));");
-            }
+            }*@
         } else {
             $("input[name='IsOnSell']").attr("disabled", false)
             $("input[name='IsDisp']").attr("disabled", false)
             $("input[name='IsNew']").attr("disabled", false)
             $('#Kind').empty();
-            @foreach(var item in (List<SelectListItem>)ViewBag.SecondKind_Option ){
+            getKind(sid);
+            @*@foreach(var item in (List<SelectListItem>)ViewBag.SecondKind_Option ){
                 @Html.Raw( "$('#Kind').append($('<option>"+item.Text+"</option>').val('"+item.Value+"').text('"+item.Text+"'));");
-            }
+            }*@
         }
     });
 

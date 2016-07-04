@@ -50,9 +50,9 @@ namespace DotWeb.Areas.Sys_Active.Controllers
             ac = new a_ProductKind() { Connection = getSQLConnection(), logPlamInfo = plamInfo };
             return View("EditData", new m_ProductKind()
             {
-                ID = ac.GetIDX(), 
+                ID = ac.GetIDX(),
                 EditType = EditModeType.Insert,
-                IsOpen =true
+                IsOpen = true
             });
         }
         public override ActionResult EditMasterDataByID(int id)
@@ -138,7 +138,7 @@ namespace DotWeb.Areas.Sys_Active.Controllers
             #region 每行及每個欄位資料組成
             List<RowElement> setRowElement = new List<RowElement>();
             var Modules = HResult.SearchData.Skip(startRecord).Take(this.DefPageSize);
-            var Series =new String[] { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列","","","其他商品" };
+            var Series = new String[] { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "", "新進商品", "特價商品" };
             foreach (m_ProductKind md in Modules)
             {
                 List<String> setFields = new List<String>(6);
@@ -147,9 +147,9 @@ namespace DotWeb.Areas.Sys_Active.Controllers
                 setFields.Add(Series[md.Series]);
                 setFields.Add(md.Name);
                 setFields.Add(md.IsOpen.BooleanValue(BooleanSheet.yn));
-                setFields.Add(md.IsSecond.BooleanValue("二手","全新"));
+                setFields.Add(md.IsSecond.BooleanValue("二手", "全新"));
                 setFields.Add(md.Sort.ToString());
-                
+
 
                 setRowElement.Add(new RowElement() { id = md.ID.ToString(), cell = setFields.ToArray() });
             }

@@ -14,7 +14,7 @@ namespace DotWeb.WebApp.Controllers
         public ActionResult AboutUs()
         {
             ViewBag.BodyClass = "AboutUs";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
             return View();
         }
 

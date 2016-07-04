@@ -18,7 +18,7 @@ namespace DotWeb.Areas.Sys_Active.Controllers
 {
     public class ProductDataController : BaseAction<m_ProductData, a_ProductData, q_ProductData, ProductData>
     {
-        
+
         #region Action and function section
         public RedirectResult Index()
         {
@@ -70,7 +70,7 @@ namespace DotWeb.Areas.Sys_Active.Controllers
             List<SelectListItem> All_Kinds = new List<SelectListItem>();
             List<SelectListItem> New_Kinds = new List<SelectListItem>();
             List<SelectListItem> Second_Kinds = new List<SelectListItem>();
-            foreach (var item in hResult.SearchData.Where(x=>x.Series==1))
+            foreach (var item in hResult.SearchData.Where(x => x.Series == 12))//預設為 新進商品 SID=12
             {
                 All_Kinds.Add(new SelectListItem() { Text = item.Name, Value = item.ID.ToString() });
                 if (item.IsSecond == true)
@@ -93,9 +93,11 @@ namespace DotWeb.Areas.Sys_Active.Controllers
             ac = new a_ProductData() { Connection = getSQLConnection(), logPlamInfo = plamInfo };
             return View("EditData", new m_ProductData()
             {
-                ID = ac.GetIDX(), 
+                ID = ac.GetIDX(),
                 IsSecond = true,
-                EditType = EditModeType.Insert, IsOpen = true });
+                EditType = EditModeType.Insert,
+                IsOpen = true
+            });
         }
         public override ActionResult EditMasterDataByID(int id)
         {
@@ -111,13 +113,13 @@ namespace DotWeb.Areas.Sys_Active.Controllers
             #endregion
 
             operationMode = OperationMode.EditModify;
-            ac = new a_ProductData() { Connection = getSQLConnection(), logPlamInfo = plamInfo }; 
+            ac = new a_ProductData() { Connection = getSQLConnection(), logPlamInfo = plamInfo };
 
             RunOneDataEnd<m_ProductData> HResult = ac.GetDataMaster(id, LoginUserId);
             md = HResult.SearchData;
 
             int sid = hResult.SearchData.Where(m_ProductData => m_ProductData.ID == md.Kind).First().Series;
-            foreach (var item in hResult.SearchData.Where(x=>x.Series==sid))
+            foreach (var item in hResult.SearchData.Where(x => x.Series == sid))
             {
                 if (item.IsSecond == true)
                     Second_Kinds.Add(new SelectListItem() { Text = item.Name, Value = item.ID.ToString() });
@@ -143,7 +145,7 @@ namespace DotWeb.Areas.Sys_Active.Controllers
             return View("EditData", md);
         }
 
-        public string getOption(int sid)
+        public string getOption(int sid, bool is_second)
         {
             #region GetKinds
             //gg
@@ -162,7 +164,12 @@ namespace DotWeb.Areas.Sys_Active.Controllers
                     New_Kinds.Add(new SelectListItem() { Text = item.Name, Value = item.ID.ToString() });
             }
 
-            var getjson = JsonConvert.SerializeObject(hResult.SearchData.Where(x => x.Series == sid));
+            string getjson = string.Empty;
+            if (is_second)
+                getjson = JsonConvert.SerializeObject(Second_Kinds);
+            else
+                getjson = JsonConvert.SerializeObject(New_Kinds);
+
 
             return getjson;
 
@@ -233,27 +240,27 @@ namespace DotWeb.Areas.Sys_Active.Controllers
 
             a_ProductKind c = new a_ProductKind() { Connection = getSQLConnection(), logPlamInfo = plamInfo };
             RunQueryPackage<m_ProductKind> hResult = c.SearchMaster(new q_ProductKind(), LoginUserId);
-            var Series = new String[] { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列","","","其他商品" };
+            var Series = new String[] { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "", "新進商品", "特價商品" };
             foreach (m_ProductData md in Modules)
             {
                 List<String> setFields = new List<String>(10);
                 //JQGrid Col
-                int sid=0;
-                if(hResult.SearchData.AsQueryable().Where(m_ProductData => m_ProductData.ID == md.Kind).Any())
-                sid = hResult.SearchData.AsQueryable().Where(m_ProductData => m_ProductData.ID == md.Kind).First().Series;
-                
+                int sid = 0;
+                if (hResult.SearchData.AsQueryable().Where(m_ProductData => m_ProductData.ID == md.Kind).Any())
+                    sid = hResult.SearchData.AsQueryable().Where(m_ProductData => m_ProductData.ID == md.Kind).First().Series;
+
                 setFields.Add(md.ID.ToString());
                 setFields.Add(md.Name);
                 setFields.Add(md.Price);
                 setFields.Add(md.IsOpen.BooleanValue(BooleanSheet.yn));
                 setFields.Add(Series[sid]);
                 setFields.Add(hResult.SearchData.AsQueryable().Where(m_ProductData => m_ProductData.ID == md.Kind).First().Name);
-                setFields.Add(md.IsSecond.BooleanValue("二手","全新"));
+                setFields.Add(md.IsSecond.BooleanValue("二手", "全新"));
                 setFields.Add(md.IsOnSell.BooleanValue(BooleanSheet.yn));
                 setFields.Add(md.IsDisp.BooleanValue(BooleanSheet.yn));
                 setFields.Add(md.IsNew.BooleanValue(BooleanSheet.yn));
                 setFields.Add(md.Sort.ToString());
-                
+
 
                 setRowElement.Add(new RowElement() { id = md.ID.ToString(), cell = setFields.ToArray() });
             }
