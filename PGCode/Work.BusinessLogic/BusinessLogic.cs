@@ -5007,6 +5007,7 @@ namespace ProcCore.Business.Logic
     #region ProductData
     public class q_ProductData : QueryBase
     {
+        public int[] s_Kinds { get; set; }
         public Int32? s_Kind { set; get; }
         public String s_Name { set; get; }
         public Boolean? s_IsOpen { get; set; }
@@ -5257,6 +5258,8 @@ namespace ProcCore.Business.Logic
                     dataWork.WhereFields(x => x.IsNew, qr.s_IsNew);
                 if (qr.s_Kind != null)
                     dataWork.WhereFields(x => x.Kind, qr.s_Kind);
+                if (qr.s_Kinds != null)//int[]
+                    dataWork.WhereFields(x => x.Kind, qr.s_Kinds);
 
                 #endregion
 
@@ -5519,7 +5522,7 @@ namespace ProcCore.Business.Logic
                 //Delete SubProduct
                 foreach (int did in ids)
                 {
-                    string sql = "delete from ProductData where (Kind = "+did+" )";
+                    string sql = "delete from ProductData where (Kind = " + did + " )";
                     var dt = Connection.ExecuteData(sql);
                 }
                 //2、進行全部刪除
@@ -5573,7 +5576,7 @@ namespace ProcCore.Business.Logic
 
                 #region 設定Where條件
                 if (qr.s_Name != null)
-                    dataWork.WhereFields(x => x.Name, qr.s_Name,WhereCompareType.Like);
+                    dataWork.WhereFields(x => x.Name, qr.s_Name, WhereCompareType.Like);
                 if (qr.s_Series != null)
                     dataWork.WhereFields(x => x.Series, qr.s_Series);
                 if (qr.s_ID != null)
@@ -5586,7 +5589,7 @@ namespace ProcCore.Business.Logic
 
                 #region 設定排序
                 if (qr.sidx == null)
-                    dataWork.OrderByFields(x => x.Sort,OrderByType.DESC); //預設排序
+                    dataWork.OrderByFields(x => x.Sort, OrderByType.DESC); //預設排序
                 else
                     dataWork.OrderByFields(x => x.Sort);
                 #endregion
