@@ -1,57 +1,60 @@
 ﻿@model IEnumerable<ProcCore.Business.Logic.m_ProductKind>
 @{
-  Layout = "~/Views/Shared/Layout.cshtml";
-  ViewBag.Title = "全新辦公家具,辦公家具買賣,二手辦公家具回收,全新辦公家具買賣-TGC禾吉辰辦公家具";
-  ViewBag.Keywords = "全新辦公家具,辦公家具,辦公家具買賣,辦公家具回收,辦公家具買賣回收,二手辦公家具回收,全新辦公家具買賣,二手辦公家具買賣回收,辦公桌,二手辦公家具,辦公椅,屏風,辦公家具設備";
-  ViewBag.Description = "全新辦公家具,辦公家具買賣,二手辦公家具買賣回收,TGC禾吉辰辦公家具,提供您線上辦公家具買賣,不出門在家也能添購辦公家具!辦公家具線上估價服務,若您有辦公室規劃裝潢需求,可線上估算全新辦公家具買賣及二手辦公家具回收價格!全新辦公家具買賣,二手辦公家具回收,辦公家具買賣,最優質的選擇-TGC禾吉辰辦公家具!";
-  }
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "全新辦公家具,辦公家具買賣,二手辦公家具回收,全新辦公家具買賣-TGC禾吉辰辦公家具";
+    ViewBag.Keywords = "全新辦公家具,辦公家具,辦公家具買賣,辦公家具回收,辦公家具買賣回收,二手辦公家具回收,全新辦公家具買賣,二手辦公家具買賣回收,辦公桌,二手辦公家具,辦公椅,屏風,辦公家具設備";
+    ViewBag.Description = "全新辦公家具,辦公家具買賣,二手辦公家具買賣回收,TGC禾吉辰辦公家具,提供您線上辦公家具買賣,不出門在家也能添購辦公家具!辦公家具線上估價服務,若您有辦公室規劃裝潢需求,可線上估算全新辦公家具買賣及二手辦公家具回收價格!全新辦公家具買賣,二手辦公家具回收,辦公家具買賣,最優質的選擇-TGC禾吉辰辦公家具!";
+}
 
 @section styles {
-<link rel="stylesheet" href="~/Content/css/page.css">
-<script src="~/Scripts/productPage.js"></script>
+    <link rel="stylesheet" href="~/Content/css/page.css">
+    <script src="~/Scripts/productPage.js"></script>
 }
 
 <div id="sidebar">
-	<h4>Categories</h4>
-	<nav><a id="menu-icon2" href="#menu" title="點選開啟選單">Categories</a>
-		<ul class="submenu">
-		<!-- 
-		當產品頁面在當前子分類時在 a 後加上 「class="cuttent"」(前後方均空1格)，如下方辦公桌系列 
-		讓css能出現變色效果，client端較清楚自己在那個系列下
-		-->
-		<li><a class="@ViewBag.Cur[1]" href="~/Products/Products_new?sid=1">屏風系列</a></li>
-		<li><a class="@ViewBag.Cur[2]" href="~/Products/Products_new?sid=2">辦公桌系列</a></li>
-		<li><a class="@ViewBag.Cur[3]" href="~/Products/Products_new?sid=3">會議桌系列</a></li>
-		<li><a class="@ViewBag.Cur[4]" href="~/Products/Products_new?sid=4">檔案櫃系列</a></li>
-		<li><a class="@ViewBag.Cur[5]" href="~/Products/Products_new?sid=5">主管辦公桌系列</a></li>
-		<li><a class="@ViewBag.Cur[6]" href="~/Products/Products_new?sid=6">辦公椅系列</a></li>
-		<li><a class="@ViewBag.Cur[7]" href="~/Products/Products_new?sid=7">沙發系列</a></li>
-        <li><a class="@ViewBag.Cur[10]" href="~/Products/Products_new?sid=10">其他商品</a></li>
-	</ul>
-	</nav>
-	<a class="btn" href="~/Products/Products_second?sid=1">二手辦公家具</a>
+    <h4>Categories</h4>
+    <nav>
+        <a id="menu-icon2" href="#menu" title="點選開啟選單">Categories</a>
+        <ul class="submenu">
+            <!--
+            當產品頁面在當前子分類時在 a 後加上 「class="cuttent"」(前後方均空1格)，如下方辦公桌系列
+            讓css能出現變色效果，client端較清楚自己在那個系列下
+            -->
+            <li><a class="@ViewBag.Cur[1]" href="~/Products/Products_new?sid=1">屏風系列</a></li>
+            <li><a class="@ViewBag.Cur[2]" href="~/Products/Products_new?sid=2">辦公桌系列</a></li>
+            <li><a class="@ViewBag.Cur[3]" href="~/Products/Products_new?sid=3">會議桌系列</a></li>
+            <li><a class="@ViewBag.Cur[4]" href="~/Products/Products_new?sid=4">檔案櫃系列</a></li>
+            <li><a class="@ViewBag.Cur[5]" href="~/Products/Products_new?sid=5">主管辦公桌系列</a></li>
+            <li><a class="@ViewBag.Cur[6]" href="~/Products/Products_new?sid=6">辦公椅系列</a></li>
+            <li><a class="@ViewBag.Cur[7]" href="~/Products/Products_new?sid=7">沙發系列</a></li>
+            <li><a class="@ViewBag.Cur[11]" href="~/Products/Products_new?sid=11">造型椅 / 吧檯椅</a></li>
+            <li><a class="@ViewBag.Cur[10]" href="~/Products/Products_new?sid=10">其他商品</a></li>
+        </ul>
+    </nav>
+    <a class="btn" href="~/Products/Products_second?sid=1">二手辦公家具</a>
 </div><!-- sidebar //-->
 
 <ul class="breadCrumb">
-	<li><a href="~/index">HOME</a></li>
-	<li><a href="~/Products/Products_new">全新辦公家具</a></li>
-	<li>@ViewBag.Series</li>
+    <li><a href="~/index">HOME</a></li>
+    <li><a href="~/Products/Products_new">全新辦公家具</a></li>
+    <li>@ViewBag.Series</li>
 </ul>
 
 <div id="content">
-	
-	<h3><em>03</em>全新辦公家具</h3>
-	
-	<h4>@ViewBag.Series/</h4>
-	
-	<ol class="prolist">
-    @foreach (var item in Model) { 
-		<li>
-			<a href="~/Products/Products_new2?kid=@item.ID&sid=@ViewBag.Nur"><img src="@Html.ImgSrc("Sys_Active","ProductKind",item.ID,"ListIcon",236)"></a>
-			@*<span>@item.Name<em>產品編號 @item.Code</em></span>*@
-		</li>
-    }
-	</ol>
+
+    <h3><em>03</em>全新辦公家具</h3>
+
+    <h4>@ViewBag.Series/</h4>
+
+    <ol class="prolist">
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="~/Products/Products_new2?kid=@item.ID&sid=@ViewBag.Nur"><img src="@Html.ImgSrc("Sys_Active","ProductKind",item.ID,"ListIcon",236)"></a>
+                @*<span>@item.Name<em>產品編號 @item.Code</em></span>*@
+            </li>
+        }
+    </ol>
 
     <ul class="page">
         <li class="prev"><a href="~/Products/Products_new?page=@ViewBag.prvePage&sid=@ViewBag.sid">上一頁</a></li>
@@ -73,9 +76,9 @@
         </li>
         <li class="next"><a href="~/Products/Products_new?page=@ViewBag.nextPage&sid=@ViewBag.sid">下一頁</a></li>
     </ul>
-	
-	<div class="align-r">
-		<a class="btn" href="#header">▲TOP</a>
-	</div><!-- align-r //-->
-	
+
+    <div class="align-r">
+        <a class="btn" href="#header">▲TOP</a>
+    </div><!-- align-r //-->
+
 </div><!-- content //-->

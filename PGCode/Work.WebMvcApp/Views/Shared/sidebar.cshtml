@@ -1,25 +1,27 @@
 ﻿<div id="sidebar">
-	<h4>產品分類</h4>
-	<nav><a id="menu-icon2" href="#menu" title="點選開啟選單">Categories</a>
-		<ul class="submenu">
-			<!-- 
-			當產品頁面在當前子分類時在 a 後加上 「class="cuttent"」(前後方均空1格)，如下方辦公桌系列 
-			讓css能出現變色效果，client端較清楚自己在那個系列下
-			-->
-			@*<li><a class="@ViewBag.Cur[0]" href="~/Products/Products_second?sid=0">新進商品</a></li>
-            <li><a class="@ViewBag.Cur[8]" href="~/Products/Products_second?sid=8">特價商品</a></li>*@
+    <h4>產品分類</h4>
+    <nav>
+        <a id="menu-icon2" href="#menu" title="點選開啟選單">Categories</a>
+        <ul class="submenu">
+            <!--
+            當產品頁面在當前子分類時在 a 後加上 「class="cuttent"」(前後方均空1格)，如下方辦公桌系列
+            讓css能出現變色效果，client端較清楚自己在那個系列下
+            -->
+            @*<li><a class="@ViewBag.Cur[0]" href="~/Products/Products_second?sid=0">新進商品</a></li>
+                <li><a class="@ViewBag.Cur[8]" href="~/Products/Products_second?sid=8">特價商品</a></li>*@
             <li><a class="@ViewBag.Cur[12]" href="~/Products/Products_second?sid=12">新進商品</a></li>
             <li><a class="@ViewBag.Cur[13]" href="~/Products/Products_second?sid=13">特價商品</a></li>
-			<li><a class="@ViewBag.Cur[1]" href="~/Products/Products_second?sid=1">屏風系列</a></li>
-			<li><a class="@ViewBag.Cur[2]" href="~/Products/Products_second?sid=2">辦公桌系列</a></li>
-			<li><a class="@ViewBag.Cur[3]" href="~/Products/Products_second?sid=3">會議桌系列</a></li>
-			<li><a class="@ViewBag.Cur[4]" href="~/Products/Products_second?sid=4">檔案櫃系列</a></li>
-			<li><a class="@ViewBag.Cur[5]" href="~/Products/Products_second?sid=5">主管辦公桌系列</a></li>
-			<li><a class="@ViewBag.Cur[6]" href="~/Products/Products_second?sid=6">辦公椅系列</a></li>
-			<li><a class="@ViewBag.Cur[7]" href="~/Products/Products_second?sid=7">沙發系列</a></li>
-			<li><a class="@ViewBag.Cur[9]" href="~/Products/Products_second?sid=9">規劃樣品展示</a></li>
+            <li><a class="@ViewBag.Cur[1]" href="~/Products/Products_second?sid=1">屏風系列</a></li>
+            <li><a class="@ViewBag.Cur[2]" href="~/Products/Products_second?sid=2">辦公桌系列</a></li>
+            <li><a class="@ViewBag.Cur[3]" href="~/Products/Products_second?sid=3">會議桌系列</a></li>
+            <li><a class="@ViewBag.Cur[4]" href="~/Products/Products_second?sid=4">檔案櫃系列</a></li>
+            <li><a class="@ViewBag.Cur[5]" href="~/Products/Products_second?sid=5">主管辦公桌系列</a></li>
+            <li><a class="@ViewBag.Cur[6]" href="~/Products/Products_second?sid=6">辦公椅系列</a></li>
+            <li><a class="@ViewBag.Cur[7]" href="~/Products/Products_second?sid=7">沙發系列</a></li>
+            @*<li><a class="@ViewBag.Cur[9]" href="~/Products/Products_second?sid=9">規劃樣品展示</a></li>*@
+            <li><a class="@ViewBag.Cur[11]" href="~/Products/Products_new?sid=11">造型椅 / 吧檯椅</a></li>
             <li><a class="@ViewBag.Cur[10]" href="~/Products/Products_second?sid=10">其他商品</a></li>
-		</ul>
-	</nav>
-	<a class="btn" href="~/Products/Products_new">全新辦公家具</a>
+        </ul>
+    </nav>
+    <a class="btn" href="~/Products/Products_new">全新辦公家具</a>
 </div><!-- sidebar //-->

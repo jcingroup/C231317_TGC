@@ -240,7 +240,7 @@ namespace DotWeb.Areas.Sys_Active.Controllers
 
             a_ProductKind c = new a_ProductKind() { Connection = getSQLConnection(), logPlamInfo = plamInfo };
             RunQueryPackage<m_ProductKind> hResult = c.SearchMaster(new q_ProductKind(), LoginUserId);
-            var Series = new String[] { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "", "新進商品", "特價商品" };
+            var Series = new String[] { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "造型椅 / 吧檯椅", "新進商品", "特價商品" };
             foreach (m_ProductData md in Modules)
             {
                 List<String> setFields = new List<String>(10);

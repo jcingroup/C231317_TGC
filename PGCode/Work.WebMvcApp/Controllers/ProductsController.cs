@@ -11,7 +11,7 @@ namespace DotWeb.WebApp.Controllers
         {
             ViewBag.BodyClass = "Products new";
             ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品" };
+            String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "造型椅 / 吧檯椅" };
             if (sid == null) { sid = 1; }
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";
@@ -52,7 +52,7 @@ namespace DotWeb.WebApp.Controllers
         {
             ViewBag.BodyClass = "Products new";
             ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品" };
+            String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "造型椅 / 吧檯椅" };
             if (sid == null) { sid = 1; }
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";
@@ -118,7 +118,7 @@ namespace DotWeb.WebApp.Controllers
 
             ViewBag.BodyClass = "Products new";
             ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品" };
+            String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "造型椅 / 吧檯椅" };
             if (sid == null) { sid = 1; }
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";
@@ -135,7 +135,7 @@ namespace DotWeb.WebApp.Controllers
 
             ViewBag.BodyClass = "Products second";
             ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "", "新進商品", "特價商品" };
+            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "造型椅 / 吧檯椅", "新進商品", "特價商品" };
 
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";
@@ -176,7 +176,7 @@ namespace DotWeb.WebApp.Controllers
         {
             ViewBag.BodyClass = "Products second";
             ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "", "新進商品", "特價商品" };
+            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "造型椅 / 吧檯椅", "新進商品", "特價商品" };
             if (sid == null) { sid = 1; }
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";
@@ -260,7 +260,7 @@ namespace DotWeb.WebApp.Controllers
 
             ViewBag.BodyClass = "Products second";
             ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "", "新進商品", "特價商品" };
+            String[] Series = { "新進商品", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "特價系列", "規劃樣品展示", "其他商品", "造型椅 / 吧檯椅", "新進商品", "特價商品" };
             if (sid == null) { sid = 1; }
 
             ViewBag.Cur[Convert.ToInt32(sid)] = "current";
