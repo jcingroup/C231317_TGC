@@ -10,7 +10,7 @@ namespace DotWeb.WebApp.Controllers
         public ActionResult Products_new(int? sid, int? page)
         {
             ViewBag.BodyClass = "Products new";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "" };
             String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "造型椅 / 吧檯椅" };
             if (sid == null) { sid = 1; }
 
@@ -51,7 +51,7 @@ namespace DotWeb.WebApp.Controllers
         public ActionResult Products_new2(int? sid, int? kid, int? page)
         {
             ViewBag.BodyClass = "Products new";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "" };
             String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "造型椅 / 吧檯椅" };
             if (sid == null) { sid = 1; }
 
@@ -117,7 +117,7 @@ namespace DotWeb.WebApp.Controllers
             ViewBag.kind = tmp;//放進viewbag裡
 
             ViewBag.BodyClass = "Products new";
-            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "" };
+            ViewBag.Cur = new string[] { "", "", "", "", "", "", "", "", "", "", "", "" };
             String[] Series = { "", "屏風系列", "辦公桌系列", "會議桌系列", "檔案櫃系列", "主管辦公桌系列", "辦公椅系列", "沙發系列", "", "", "其他商品", "造型椅 / 吧檯椅" };
             if (sid == null) { sid = 1; }
 
