@@ -256,9 +256,9 @@ namespace DotWeb.Areas.Sys_Active.Controllers
                 setFields.Add(Series[sid]);
                 setFields.Add(hResult.SearchData.AsQueryable().Where(m_ProductData => m_ProductData.ID == md.Kind).First().Name);
                 setFields.Add(md.IsSecond.BooleanValue("二手", "全新"));
-                setFields.Add(md.IsOnSell.BooleanValue(BooleanSheet.yn));
+                //setFields.Add(md.IsOnSell.BooleanValue(BooleanSheet.yn));
                 setFields.Add(md.IsDisp.BooleanValue(BooleanSheet.yn));
-                setFields.Add(md.IsNew.BooleanValue(BooleanSheet.yn));
+                //setFields.Add(md.IsNew.BooleanValue(BooleanSheet.yn));
                 setFields.Add(md.Sort.ToString());
 
 

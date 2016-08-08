@@ -5264,10 +5264,18 @@ namespace ProcCore.Business.Logic
                 #endregion
 
                 #region 設定排序
-                if (qr.sidx == null)
-                    dataWork.OrderByFields(x => x.Sort); //預設排序
+                if (qr.sidx == "Sort")
+                {
+                    if (qr.sord == "desc")
+                        dataWork.OrderByFields(x => x.Sort, OrderByType.DESC);
+                    else
+                        dataWork.OrderByFields(x => x.Sort, OrderByType.ASC);
+                }
                 else
-                    dataWork.OrderByFields(x => x.SetDate);
+                {
+                    dataWork.OrderByFields(x => x.Sort); //預設排序
+                }
+
                 #endregion
 
                 #region 輸出物件陣列
@@ -5588,10 +5596,17 @@ namespace ProcCore.Business.Logic
                 #endregion
 
                 #region 設定排序
-                if (qr.sidx == null)
+               if (qr.sidx == "Sort")
+                {
+                    if (qr.sord == "desc")
+                        dataWork.OrderByFields(x => x.Sort, OrderByType.DESC);
+                    else
+                        dataWork.OrderByFields(x => x.Sort, OrderByType.ASC);
+                }
+                else {
                     dataWork.OrderByFields(x => x.Sort, OrderByType.DESC); //預設排序
-                else
-                    dataWork.OrderByFields(x => x.Sort);
+                }
+                  
                 #endregion
 
                 #region 輸出物件陣列
