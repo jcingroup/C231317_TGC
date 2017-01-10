@@ -29,7 +29,7 @@
         @foreach (var item in Model) { 
 		<li>
 			<a href="~/Products/Products_second2?sid=@ViewBag.Nur&kid=@item.ID"><img src="@Html.ImgSrc("Sys_Active","ProductKind",item.ID,"ListIcon",236)"></a>
-			@*<span>@item.Name<em>產品編號 @item.Code</em></span>*@
+			<span>@item.Name@*<em>產品編號 @item.Code</em>*@</span>
 		</li>
         }
 		
