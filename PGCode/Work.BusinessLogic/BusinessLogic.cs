@@ -5273,7 +5273,7 @@ namespace ProcCore.Business.Logic
                 }
                 else
                 {
-                    dataWork.OrderByFields(x => x.Sort); //預設排序
+                    dataWork.OrderByFields(x => x.Sort, OrderByType.ASC); //預設排序
                 }
 
                 #endregion
