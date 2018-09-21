@@ -1,0 +1,1 @@
+﻿2018-09-21 10:07:04.832=>無法載入檔案或組件 'MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d' 或其相依性的其中之一。 系統找不到指定的檔案。
